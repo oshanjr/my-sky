@@ -1,0 +1,6 @@
+{
+  "name": "My Sky Travels - Sri Lanka",
+  "description": "A premium travel agency website for Sri Lanka featuring a liquid glass UI, specialized in flights, tours, and visa services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

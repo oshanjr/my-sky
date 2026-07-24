@@ -1,1 +1,389 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS — Professional Dark/Light Dual-Theme System
+   Hero/Footer: Deep navy   |   Content sections: Clean white
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Dark Backgrounds (Hero, Featured, Footer) ── */
+  --bg-midnight:   #0A1628;
+  --bg-navy:       #0F1D32;
+  --bg-deep:       #132640;
+
+  /* ── Light Backgrounds (Services, Contact, About) ── */
+  --bg-white:      #FFFFFF;
+  --bg-snow:       #F8FAFC;
+  --bg-mist:       #F1F5F9;
+
+  /* ── Brand Accent (Teal/Cyan) ── */
+  --accent-teal:        #0EA5E9;
+  --accent-teal-dark:   #0284C7;
+  --accent-teal-frost:  rgba(14, 165, 233, 0.12);
+  --accent-teal-border: rgba(14, 165, 233, 0.30);
+  --accent-teal-glow:   rgba(14, 165, 233, 0.25);
+
+  /* ── Secondary Accent (Warm amber for ratings/highlights) ── */
+  --accent-amber:  #F59E0B;
+
+  /* ── Text: Dark Context ── */
+  --text-on-dark:          #FFFFFF;
+  --text-on-dark-secondary: rgba(255, 255, 255, 0.72);
+  --text-on-dark-muted:     rgba(255, 255, 255, 0.45);
+
+  /* ── Text: Light Context ── */
+  --text-on-light:           #0F172A;
+  --text-on-light-secondary: #475569;
+  --text-on-light-muted:     #94A3B8;
+
+  /* ── Glass: Dark Context ── */
+  --glass-dark-bg:          rgba(255, 255, 255, 0.08);
+  --glass-dark-bg-hover:    rgba(255, 255, 255, 0.14);
+  --glass-dark-border:      rgba(255, 255, 255, 0.12);
+  --glass-dark-border-hover: rgba(255, 255, 255, 0.25);
+
+  /* ── Glass: Light Context ── */
+  --glass-light-bg:          rgba(255, 255, 255, 0.70);
+  --glass-light-bg-hover:    rgba(255, 255, 255, 0.90);
+  --glass-light-border:      rgba(0, 0, 0, 0.08);
+  --glass-light-border-hover: rgba(0, 0, 0, 0.15);
+
+  /* ── CTA / Interactive ── */
+  --cta-bg:       linear-gradient(135deg, #0EA5E9, #0284C7);
+  --cta-bg-hover: linear-gradient(135deg, #0284C7, #0369A1);
+  --cta-text:     #FFFFFF;
+  --cta-glow:     rgba(14, 165, 233, 0.40);
+
+  /* ── Shared ── */
+  --glass-blur: 20px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+body {
+  background: var(--bg-white);
+  color: var(--text-on-light);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent-teal-frost);
+  color: var(--text-on-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION CONTEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-dark {
+  background: linear-gradient(180deg, var(--bg-midnight), var(--bg-navy));
+  color: var(--text-on-dark);
+}
+
+.section-dark-deep {
+  background: var(--bg-midnight);
+  color: var(--text-on-dark);
+}
+
+.section-light {
+  background: var(--bg-white);
+  color: var(--text-on-light);
+}
+
+.section-light-alt {
+  background: var(--bg-snow);
+  color: var(--text-on-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS CARD — DARK CONTEXT  (Hero, Featured, Footer)
+   ═══════════════════════════════════════════════════════════════ */
+
+.glass-card {
+  background: var(--glass-dark-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-dark-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.20);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: var(--glass-dark-bg-hover);
+  border-color: var(--glass-dark-border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.glass-card--accent-hover:hover {
+  border-color: var(--accent-teal-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT CARD  (Services, Contact — light backgrounds)
+   ═══════════════════════════════════════════════════════════════ */
+
+.light-card {
+  background: var(--bg-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 6px 24px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.light-card:hover {
+  border-color: var(--accent-teal-border);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 40px rgba(14, 165, 233, 0.10);
+  transform: translateY(-4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA BUTTON (works on both dark and light)
+   ═══════════════════════════════════════════════════════════════ */
+
+.cta-button {
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  font-weight: 700;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--cta-glow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: var(--cta-bg-hover);
+  box-shadow: 0 8px 32px var(--cta-glow), 0 0 48px rgba(14, 165, 233, 0.20);
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: scale(0.97) translateY(0);
+}
+
+/* Outline variant for light sections */
+.cta-button-outline {
+  background: transparent;
+  color: var(--accent-teal);
+  font-weight: 700;
+  border: 2px solid var(--accent-teal-border);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cta-button-outline:hover {
+  background: var(--accent-teal-frost);
+  border-color: var(--accent-teal);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV LINK STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.nav-link {
+  color: var(--text-on-dark-secondary);
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--accent-teal);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER LINK STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.footer-link {
+  color: var(--text-on-dark-secondary);
+  transition: color 0.2s ease;
+}
+.footer-link:hover {
+  color: var(--accent-teal);
+}
+
+.footer-meta-link {
+  color: var(--text-on-dark-muted);
+  transition: color 0.2s ease;
+}
+.footer-meta-link:hover {
+  color: var(--text-on-dark-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOCIAL BUTTONS (dark context)
+   ═══════════════════════════════════════════════════════════════ */
+
+.social-btn {
+  background: var(--glass-dark-bg);
+  border: 1px solid var(--glass-dark-border);
+  color: var(--text-on-dark-secondary);
+  transition: all 0.25s ease;
+}
+.social-btn:hover {
+  background: var(--accent-teal-frost);
+  border-color: var(--accent-teal-border);
+  color: var(--accent-teal);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS BUTTON (dark context)
+   ═══════════════════════════════════════════════════════════════ */
+
+.glass-btn {
+  background: var(--glass-dark-bg);
+  border: 1px solid var(--glass-dark-border);
+  color: var(--accent-teal);
+  backdrop-filter: blur(var(--glass-blur));
+  transition: all 0.25s ease;
+}
+.glass-btn:hover {
+  background: var(--accent-teal-frost);
+  border-color: var(--accent-teal-border);
+  color: var(--text-on-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACCENT LINK
+   ═══════════════════════════════════════════════════════════════ */
+
+.accent-link {
+  color: var(--accent-teal);
+  transition: color 0.2s ease;
+}
+.accent-link:hover {
+  color: var(--accent-teal-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM INPUT — DARK CONTEXT
+   ═══════════════════════════════════════════════════════════════ */
+
+.form-input {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-on-dark);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--text-on-dark-muted);
+}
+
+.form-input:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.35);
+  border-color: var(--accent-teal-border);
+  box-shadow: 0 0 0 3px var(--accent-teal-frost);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM INPUT — LIGHT CONTEXT
+   ═══════════════════════════════════════════════════════════════ */
+
+.form-input-light {
+  background: var(--bg-snow);
+  border: 1.5px solid rgba(0, 0, 0, 0.10);
+  color: var(--text-on-light);
+  transition: all 0.3s ease;
+}
+
+.form-input-light::placeholder {
+  color: var(--text-on-light-muted);
+}
+
+.form-input-light:focus {
+  outline: none;
+  background: var(--bg-white);
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px var(--accent-teal-frost);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AMBIENT GLOW ORBS
+   ═══════════════════════════════════════════════════════════════ */
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(160px);
+  background: var(--accent-teal-glow);
+}
+
+/* Subdued glow for light sections */
+.glow-orb-light {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(200px);
+  background: rgba(14, 165, 233, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MICRO-ANIMATION KEYFRAMES
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.15; }
+  50%      { opacity: 0.30; }
+}
+
+.animate-glow-breathe {
+  animation: glow-breathe 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION DIVIDER — subtle gradient separator
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-divider-top {
+  position: relative;
+}
+
+.section-divider-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.20), transparent);
+}

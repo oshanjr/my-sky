@@ -8,26 +8,51 @@ import { Sparkles } from 'lucide-react';
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen">
       <Navbar />
-      <main className="pt-32">
-        <section className="px-6 mb-12 relative">
-          <div className="max-w-7xl mx-auto text-center">
+      <main>
+        {/* Hero header — Dark */}
+        <section className="section-dark pt-32 pb-16 px-6 relative">
+          <div className="glow-orb absolute top-1/3 -left-32 w-[400px] h-[400px] animate-glow-breathe" />
+          <div className="max-w-7xl mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="space-y-4"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold tracking-widest text-cyan-300 uppercase backdrop-blur-md bg-white/10 border border-white/15 rounded-full">
-                <Sparkles size={14} className="text-cyan-300" />
+              <div
+                className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full"
+                style={{
+                  color: 'var(--accent-teal)',
+                  background: 'var(--glass-dark-bg)',
+                  border: '1px solid var(--glass-dark-border)',
+                  backdropFilter: 'blur(var(--glass-blur))',
+                }}
+              >
+                <Sparkles size={14} style={{ color: 'var(--accent-teal)' }} />
                 Our Expertise
               </div>
-              <h1 className="text-4xl md:text-6xl font-extrabold text-white font-serif tracking-tight">
-                Premium <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-300">Travel Services</span>
+              <h1
+                className="text-4xl md:text-6xl font-extrabold font-serif tracking-tight"
+                style={{ color: 'var(--text-on-dark)' }}
+              >
+                Everything You Need for a{' '}
+                <span
+                  style={{
+                    background: 'linear-gradient(90deg, #0EA5E9, #38BDF8)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  Seamless Journey
+                </span>
               </h1>
-              <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-                End-to-end luxury travel solutions. Whether it's custom flight bookings, visa concierge, or private guided tours, we take care of every detail.
+              <p
+                className="text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+                style={{ color: 'var(--text-on-dark-secondary)' }}
+              >
+                From flight bookings to visa assistance and curated tour packages, we provide complete travel solutions designed for comfort, reliability, and affordability.
               </p>
             </motion.div>
           </div>

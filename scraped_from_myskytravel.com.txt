@@ -1,0 +1,251 @@
+Build a travel agency website called "mySky Travels" (brand name: mySky) with the following 
+pages and exact content. The site is a Sri Lanka-based travel and flight booking agency 
+operating from Negombo, serving both local and international travelers.
+
+────────────────────────────────────────
+NAVIGATION (all pages)
+────────────────────────────────────────
+Logo: mySky (text or logo image)
+Nav links: Home | Service | About | Contact Us | Blogs
+CTA button: "Get Started" → links to /contacts
+Footer tagline: "EASILY SEARCH AND BOOK DOMESTIC AND INTERNATIONAL FLIGHTS WITH REAL-TIME AVAILABILITY."
+Footer phone: +94 76 90 61 30
+Footer company links: Home, About, Services, Contact Us
+Footer support links: FAQ, Privacy Policy, Terms Of Service
+Footer copyright: © 2026 mySky Travels. All rights reserved.
+Footer credit: Designed by Sphiria Digital
+
+────────────────────────────────────────
+PAGE 1: HOME (/)
+────────────────────────────────────────
+
+HERO SECTION
+Headline: "Luxury. Affordable."
+Subtext: "Book your flights at the best prices with fast, secure, and hassle-free online 
+ticket booking."
+Buttons: "Book Now" (→ /contacts) | "Our Services" (→ /service)
+
+SERVICES SECTION
+Section label: "Services"
+Section heading: "Over Travel Services"
+Section description: "Expert assistance for visa cancellation, fine settlement, and status 
+change with professional guidance."
+
+Service cards (each has a title, expandable details):
+1. Visa Consultation – "Expert assistance for visa cancellation, fine settlement, and status 
+   change with professional guidance."
+2. Visit Visa – "30 and 60 day visit visas with renewal and inside-country extension support."
+3. Freelance Visa – "Support for freelance permits and long-term employment visas for 
+   professionals."
+4. Tour Packages – "International and UAE tour packages including city tours, adventure, and 
+   luxury experiences."
+5. Accommodation – "3 and 4 star hotels, hotel apartments, and luxury stays tailored to your 
+   travel needs."
+6. Transport – "Airport transfers, public transport tickets, private vehicles, and chauffeur 
+   services."
+7. Air Tickets – "Inbound and outbound air ticket booking with competitive pricing and fast 
+   confirmation."
+
+FLIGHTS SECTION
+Heading: "Book Cheap Flights From Sri Lanka Starting From"
+Subtext: "Book inbound and outbound air tickets at the best prices with fast, secure, and 
+hassle-free booking support."
+
+4 cards:
+1. Inbound Flight Booking – "Inbound air ticket services with competitive fares, trusted 
+   airline partners, and fast confirmation, ensuring a smooth and reliable arrival experience." 
+   Button: "Book Now"
+2. Outbound Flight Booking – "Outbound air ticket booking from Sri Lanka with secure payments, 
+   flexible travel options, and professional support from booking to departure." Button: "Book Now"
+3. Affordable Air Tickets – "Budget-friendly air ticket options carefully selected to offer the 
+   best value while maintaining comfort, safety, and reliable airline service." Button: "Learn more"
+4. Fly With Confidence – "Professional air ticket booking with reliable airline partners, secure 
+   payment handling, and full customer support from confirmation through to departure." Button: "Book Now"
+
+CTA BANNER
+Heading: "Book Cheap Flights From Sri Lanka Starting From"
+Subtext: "Inbound and outbound air ticket services with competitive fares, trusted airline 
+partners, and fast, secure booking support for a smooth travel experience."
+Button: "Contact Us" → /contacts
+
+COMPLETE SERVICES SECTION
+Heading: "Complete Travel & Visa Services From Sri Lanka"
+Description line 1: "We provide end-to-end travel solutions including visas, tours, 
+accommodation, transport, and air tickets to make every journey smooth and stress-free."
+Description line 2: "From visa consultation to inbound and outbound flights, our services are 
+designed with transparent pricing, secure processes, and reliable support at every step."
+Button: "Learn more" → /service
+
+6 service cards:
+1. Travel & Mobility Services – "Transport solutions and air ticket services including airport 
+   transfers and inbound and outbound flights." Button: "Book Now"
+2. Comfortable Stay Options – "Carefully selected hotels and apartments ranging from standard 
+   comfort to luxury living." Button: "Book Now"
+3. Curated Travel Experiences – "International and UAE tour packages featuring city tours, 
+   adventure activities, and luxury experiences." Button: "Book Now"
+4. Visa Support Solutions – "End-to-end assistance for visa issues including cancellations, 
+   fine settlement, and status changes." Button: "Book Now"
+5. Short-Term Stay Visas – "30 and 60 day visit visas with smooth renewals and inside-country 
+   extension options." Button: "Book Now"
+6. Professional Visa Options – "Employment visas and freelance permits tailored for skilled 
+   professionals and independent workers." Button: "Book Now"
+
+────────────────────────────────────────
+PAGE 2: ABOUT (/about)
+────────────────────────────────────────
+
+Page label: "About Us"
+Heading: "Travel Smarter. Fly Better. Effortlessly."
+Intro: "We are a trusted online air ticket booking platform designed to make travel planning 
+simple, fast, and convenient. Our mission is to connect travelers with the best flight options 
+from leading airlines around the world."
+
+OUR STORY / VISION / MISSION
+Our Story: "Our mission is to connect people with the world through seamless flight bookings, 
+trusted travel services, and transparent pricing, without the stress."
+Our Vision: "To become Sri Lanka's most trusted digital travel platform, empowering travelers 
+with affordable choices, transparent pricing, and world-class service."
+Our Mission: "To make travel simple, affordable, and accessible by providing seamless flight 
+booking and trusted travel services for travelers from Sri Lanka and beyond."
+
+STATS (3 stat blocks):
+- 15K+ Happy Travelers
+- 120+ Global Destinations
+- 98% Customer Satisfaction
+
+TOP FLIGHT DEALS SECTION
+Heading: "Top Flight Deals"
+Description: "We are a trusted online air ticket booking platform designed to make travel 
+planning simple, fast, and convenient. Our mission is to connect travelers with the best 
+flight options from leading airlines around the world."
+
+Cards:
+1. "TOUR 2026" – Luxury Travel and Airline – "Experience premium travel with world-class 
+   airlines offering comfort, reliability, and exclusive services for international travelers."
+   Link: Learn more → /service
+2. Tour Package → /service
+
+WHY CHOOSE US
+Heading: "Why Choose Us"
+Description: "We are a trusted online air ticket booking platform designed to make travel 
+planning simple, fast, and convenient. Our mission is to connect travelers with the best 
+flight options from leading airlines around the world."
+
+5 items:
+1. Professional Service – "Receive confirmations and support throughout your journey."
+2. Affordable Pricing – "Premium services at reasonable and competitive prices."
+3. Customer Satisfaction First – "Your satisfaction is always our top priority."
+4. Experienced Team – "A skilled team with strong industry experience."
+5. Fast & Reliable Support – "24/7 support with quick and effective responses."
+
+CTA BANNER
+Heading: "Let's Take You Places"
+Description line 1: "Whether you're traveling for work, leisure, or a new opportunity abroad, 
+we're here to make it happen."
+Description line 2: "From your first search to your final destination, we're committed to 
+delivering a smooth and dependable travel experience."
+Button: "Contact Us" → /contacts
+
+────────────────────────────────────────
+PAGE 3: SERVICE (/service)
+────────────────────────────────────────
+
+Page label: "Service"
+Heading: "Everything You Need for a Seamless Journey"
+Subtext: "From flight bookings to visa assistance and curated tour packages, we provide 
+complete travel solutions designed for comfort, reliability, and affordability."
+
+WHY CHOOSE OUR SERVICES
+Heading: "Why Choose Our Services"
+Description: "We make travel easy with competitive prices, secure bookings, and reliable 
+support. From planning to takeoff, our services are designed to give you confidence and 
+peace of mind."
+Body: "We are dedicated to making travel simple, reliable, and affordable for every traveler. 
+By partnering with trusted airlines and global travel providers, we offer competitive pricing 
+without compromising on comfort or quality. Our fast and secure online booking system ensures 
+a smooth experience from the moment you search for a flight until your booking is confirmed."
+Button: "Contact Us" → /contacts
+
+VISA CONSULTATION SECTION
+Heading: "Visa Consultation"
+Description: "We make travel easy with competitive prices, secure bookings, and reliable 
+support. From planning to takeoff, our services are designed to give you confidence and 
+peace of mind."
+3 sub-services:
+1. Visa Cancellation – "Assistance with proper visa cancellation to avoid penalties and legal issues."
+2. Fine Settlement – "Complete your booking with safe and trusted payment methods."
+3. Change of Status – "Receive confirmations and support throughout your journey."
+
+VISIT VISA & FREELANCE VISA SECTION
+Heading: "Visit Visa & Freelance Visa"
+Description: "We make travel easy with competitive prices, secure bookings, and reliable 
+support. From planning to takeoff, our services are designed to give you confidence and 
+peace of mind."
+Visit Visa Services: "30 and 60 day visit visas with A to A and B to B renewal options, 
+along with inside-country extension support to ensure a smooth and hassle-free stay."
+Freelance Visa Services: "2-year employment visa and freelance permit assistance designed 
+for independent professionals, remote workers, and long-term work opportunities."
+Button: "Contact Us" → /contacts
+
+TOUR PACKAGES SECTION
+Heading: "Tour Packages Service"
+Subtext: "Explore global destinations and unforgettable experiences, from city tours and 
+adventures to luxury and cultural journeys."
+6 packages:
+1. International Tours – "Carefully planned foreign tours to Georgia, Azerbaijan, Maldives, 
+   Malaysia, and Armenia for unforgettable travel experiences."
+2. Dubai & Abu Dhabi City Tours – "Guided city tours covering iconic landmarks, modern 
+   attractions, and cultural highlights in Dubai and Abu Dhabi."
+3. Nature & Adventure Tours – "Explore nature and adventure experiences across the UAE, 
+   designed for thrill seekers and outdoor lovers."
+4. Skydiving Experiences – "Adrenaline-filled skydiving events offering breathtaking views 
+   and unforgettable moments in the UAE."
+5. Desert Safari Tours – "Classic desert safari experiences including dune bashing, desert 
+   camps, and cultural entertainment."
+6. Luxury Yacht & Cruise Tours – "Premium yacht and cruise tours combined with luxury 
+   comfort and immersive cultural experiences."
+
+ACCOMMODATION SECTION
+Heading: "Accommodation Services"
+Subtext: "Comfortable stay options including hotels, apartments, and luxury residences 
+tailored to your travel needs."
+3 options:
+1. 3 Star And 4 Star Hotels – "Comfortable 3-star and 4-star hotel rooms offering quality 
+   service and convenient locations."
+2. Hotel Apartments – "Fully furnished hotel apartments ideal for short and long stays with 
+   added privacy and comfort."
+3. Luxury Apartments – "Premium luxury apartments designed for travelers seeking style, 
+   space, and high-end living."
+
+TRANSPORT SERVICES SECTION
+Heading: "Transport Services"
+Subtext: "Reliable transport solutions including public transport, airport transfers, private 
+vehicles, and luxury travel options."
+4 options:
+1. Metro & Bus Tickets – "Dubai metro and bus tickets for convenient and affordable public 
+   transport across the city."
+2. Airport Pickup & Drop-off – "Reliable airport transfer services ensuring timely pickup 
+   and drop-off for a smooth journey."
+3. Private Vehicles & Chauffeur – "Private vehicles with professional chauffeur services 
+   for comfortable and hassle-free travel."
+4. Luxury & Wellness Travel – "Premium transport and wellness travel packages designed for 
+   comfort, relaxation, and style."
+
+────────────────────────────────────────
+PAGE 4: CONTACT US (/contacts)
+────────────────────────────────────────
+
+Page label: "Contact Us"
+Heading: "Get in Touch for a Smooth Travel Experience"
+Subtext: "From flight inquiries to visa assistance and travel planning, our team is here to 
+support you every step of the way. Reach out to us for quick responses, clear guidance, and 
+reliable assistance tailored to your travel needs."
+
+Contact details:
+- Email: [info@myskytravels.com] – "Get assistance with flight bookings, ticket changes, 
+  refunds, and travel inquiries. Our support team is always ready to help."
+- Phone: +94 77 523 1525 / +94 77 760 9130 (WhatsApp links) – "Talk to our travel experts 
+  for real-time booking support, fare details, and personalized flight assistance."
+- Address: 1st Floor, 198, St. Joseph's Street, Negombo – "MY SKY operates from Negombo, 
+  connecting you to destinations worldwide with safe, reliable, and affordable flight booking 
+  services."

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Plane, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -15,41 +15,78 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between backdrop-blur-2xl bg-slate-950/60 border border-white/15 rounded-[2rem] px-6 sm:px-8 py-3.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] transition-all hover:border-white/25">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3">
+      <div
+        className="max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 py-3 rounded-2xl transition-all duration-500"
+        style={{
+          background: scrolled
+            ? 'rgba(10, 22, 40, 0.92)'
+            : 'rgba(10, 22, 40, 0.60)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          border: scrolled
+            ? '1px solid rgba(255,255,255,0.10)'
+            : '1px solid rgba(255,255,255,0.08)',
+          boxShadow: scrolled
+            ? '0 8px 32px rgba(0,0,0,0.30)'
+            : '0 4px 16px rgba(0,0,0,0.10)',
+        }}
+      >
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="bg-gradient-to-br from-blue-600 to-cyan-500 p-2.5 rounded-xl group-hover:scale-110 transition-transform shadow-lg shadow-cyan-500/20">
+          <div
+            className="p-2 rounded-xl group-hover:scale-110 transition-transform"
+            style={{
+              background: 'var(--cta-bg)',
+              boxShadow: '0 4px 16px var(--cta-glow)',
+            }}
+          >
             <Plane className="text-white w-5 h-5" />
           </div>
-          <span className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-teal-200">
+          <span
+            className="text-lg sm:text-xl font-bold tracking-tight"
+            style={{
+              background: 'linear-gradient(90deg, #0EA5E9, #38BDF8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
             My Sky Travels
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-slate-200 hover:text-cyan-300 transition-colors"
+              className="nav-link text-sm font-medium tracking-wide"
             >
               {item.label}
             </Link>
           ))}
-          <Link 
-            href="/contact" 
-            className="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 hover:from-blue-500 hover:to-cyan-400 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-all shadow-lg shadow-cyan-500/20 active:scale-95"
-          >
+          <Link href="/contact" className="cta-button text-sm !py-2.5 !px-6 !rounded-xl">
             Book Now
           </Link>
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white p-2 rounded-xl bg-white/10 border border-white/10 hover:bg-white/20 transition-colors" 
+        <button
+          className="md:hidden p-2 rounded-xl cursor-pointer"
+          style={{
+            background: 'var(--glass-dark-bg)',
+            border: '1px solid var(--glass-dark-border)',
+            color: 'var(--text-on-dark)',
+          }}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -61,21 +98,29 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          className="md:hidden absolute top-20 left-4 right-4 backdrop-blur-2xl bg-slate-900/90 border border-white/15 rounded-3xl p-6 shadow-2xl shadow-slate-950 flex flex-col gap-4 z-50"
+          className="md:hidden absolute top-[4.5rem] left-4 right-4 p-6 rounded-2xl z-50 flex flex-col gap-4"
+          style={{
+            background: 'rgba(10, 22, 40, 0.96)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            border: '1px solid rgba(255,255,255,0.10)',
+            boxShadow: '0 16px 48px rgba(0,0,0,0.40)',
+          }}
         >
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-base font-semibold text-slate-200 hover:text-cyan-300 py-1 transition-colors"
+              className="text-base font-medium py-1.5"
+              style={{ color: 'var(--text-on-dark-secondary)' }}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <Link 
-            href="/contact" 
-            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-xl font-bold shadow-lg shadow-cyan-500/20 active:scale-95 transition-all text-center"
+          <Link
+            href="/contact"
+            className="cta-button w-full text-center !rounded-xl mt-2"
             onClick={() => setIsOpen(false)}
           >
             Book Now

@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-outfit)"],
         serif: ["var(--font-playfair)"],
       },
       colors: {
@@ -20,6 +20,13 @@ const config: Config = {
         /* Light Backgrounds */
         snow: "var(--bg-snow)",
         mist: "var(--bg-mist)",
+        cream: "var(--bg-cream)",
+        /* Brand Gradient Colors */
+        "grad-deep": "var(--gradient-deep)",
+        "grad-primary": "var(--gradient-primary)",
+        "grad-mid": "var(--gradient-mid)",
+        "grad-light": "var(--gradient-light)",
+        "grad-ice": "var(--gradient-ice)",
         /* Brand Accent */
         accent: "var(--accent-teal)",
         "accent-dark": "var(--accent-teal-dark)",
@@ -33,6 +40,13 @@ const config: Config = {
         "t-light": "var(--text-on-dark)",
         "t-light-secondary": "var(--text-on-dark-secondary)",
         "t-light-muted": "var(--text-on-dark-muted)",
+      },
+      animation: {
+        "glow-breathe": "glow-breathe 5s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 4s ease infinite",
+        "glass-pulse": "glass-pulse 3s ease-in-out infinite",
+        "slide-up": "slide-up-fade 0.6s ease-out forwards",
       },
     },
   },

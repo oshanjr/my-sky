@@ -88,20 +88,20 @@ export default function Hero() {
     initial: (dir: number) => ({
       x: dir > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 1.05
+      scale: 1.08
     }),
     animate: {
       x: 0, opacity: 1, scale: 1,
       transition: {
-        x: { type: 'spring' as const, stiffness: 300, damping: 30 },
-        opacity: { duration: 0.6 },
-        scale: { duration: 0.8, ease: 'easeOut' as const }
+        x: { type: 'spring' as const, stiffness: 200, damping: 28 },
+        opacity: { duration: 0.8 },
+        scale: { duration: 1.2, ease: 'easeOut' as const }
       }
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? '-50%' : '50%',
+      x: dir > 0 ? '-40%' : '40%',
       opacity: 0, scale: 0.95,
-      transition: { x: { duration: 0.5 }, opacity: { duration: 0.4 } }
+      transition: { x: { duration: 0.6 }, opacity: { duration: 0.5 } }
     })
   };
 
@@ -109,7 +109,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[92vh] lg:min-h-screen w-full flex flex-col justify-between pt-24 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden"
+      className="relative min-h-[94vh] lg:min-h-screen w-full flex flex-col justify-between pt-28 pb-12 px-4 sm:px-8 lg:px-12 overflow-hidden"
       onMouseEnter={() => setIsPlaying(false)}
       onMouseLeave={() => setIsPlaying(true)}
     >
@@ -132,90 +132,111 @@ export default function Hero() {
               className="object-cover object-center"
               priority={current === 0}
               sizes="100vw"
-              quality={75}
+              quality={80}
             />
-            {/* Dark gradient overlays for deep premium feel */}
+            {/* Cinematic gradient overlays using brand colors */}
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to right, rgba(10, 22, 40, 0.92), rgba(10, 22, 40, 0.60), rgba(10, 22, 40, 0.30))',
+                background: 'linear-gradient(to right, rgba(5, 13, 26, 0.95), rgba(5, 13, 26, 0.65), rgba(5, 13, 26, 0.25))',
               }}
             />
             <div
               className="absolute inset-0"
               style={{
-                background: 'linear-gradient(to top, var(--bg-midnight), transparent 50%, rgba(10, 22, 40, 0.50))',
+                background: 'linear-gradient(to top, rgba(5, 13, 26, 1) 0%, rgba(5, 13, 26, 0.40) 40%, transparent 70%, rgba(5, 13, 26, 0.50) 100%)',
+              }}
+            />
+            {/* Subtle brand color tint overlay */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, rgba(3, 105, 161, 0.10), transparent 60%, rgba(14, 165, 233, 0.05))',
               }}
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Glow Orbs */}
-      <div className="glow-orb absolute top-1/4 -left-32 w-96 h-96 z-10 animate-glow-breathe" />
-      <div className="glow-orb absolute bottom-10 -right-32 w-[500px] h-[500px] z-10 animate-glow-breathe" style={{ animationDelay: '2s' }} />
+      {/* Gradient Mesh Orbs */}
+      <div className="glow-orb absolute top-1/4 -left-40 w-[500px] h-[500px] z-10 animate-glow-breathe" />
+      <div className="glow-orb-accent absolute bottom-20 -right-40 w-[600px] h-[600px] z-10 animate-glow-breathe" style={{ animationDelay: '2.5s' }} />
+      <div className="glow-orb absolute top-10 right-1/4 w-[300px] h-[300px] z-10 animate-glow-breathe" style={{ animationDelay: '1s' }} />
 
       {/* Hero Content */}
-      <div className="relative z-20 max-w-7xl w-full mx-auto my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-        <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+      <div className="relative z-20 max-w-7xl w-full mx-auto my-auto py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+        <div className="lg:col-span-7 flex flex-col items-start space-y-7">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSlide.id}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="space-y-5"
+              exit={{ opacity: 0, y: -25 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-6"
             >
-              {/* Category Pills */}
+              {/* Category + Meta Pills — Glassmorphism */}
               <div className="flex items-center gap-3 flex-wrap">
                 <span
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold tracking-wider uppercase"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wider uppercase"
                   style={{
-                    color: 'var(--bg-midnight)',
-                    background: '#FFFFFF',
+                    background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(56, 189, 248, 0.10))',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(14, 165, 233, 0.25)',
+                    color: '#7DD3FC',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
                   }}
                 >
-                  <Sparkles size={13} style={{ color: 'var(--bg-midnight)' }} />
+                  <Sparkles size={13} style={{ color: '#38BDF8' }} />
                   {activeSlide.category}
                 </span>
                 <span
-                  className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 rounded-lg"
+                  className="flex items-center gap-1 text-xs font-semibold px-3 py-2 rounded-xl"
                   style={{
                     color: '#FBBF24',
-                    background: 'rgba(0,0,0,0.50)',
-                    border: '1px solid rgba(255,255,255,0.10)',
+                    background: 'rgba(0,0,0,0.45)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
                   }}
                 >
                   <Star size={13} className="fill-amber-400" /> {activeSlide.rating}
                 </span>
                 <span
-                  className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg"
+                  className="flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-xl"
                   style={{
                     color: 'var(--text-on-dark-secondary)',
-                    background: 'rgba(0,0,0,0.50)',
-                    border: '1px solid rgba(255,255,255,0.10)',
+                    background: 'rgba(0,0,0,0.40)',
+                    backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
                   }}
                 >
-                  <MapPin size={13} style={{ color: 'var(--accent-teal)' }} /> {activeSlide.location}
+                  <MapPin size={13} style={{ color: '#38BDF8' }} /> {activeSlide.location}
                 </span>
               </div>
 
+              {/* Heading — Large + Gradient accent */}
               <div>
                 <h2
-                  className="text-sm sm:text-base font-semibold tracking-wide uppercase mb-2"
-                  style={{ color: 'var(--accent-teal)' }}
+                  className="text-sm sm:text-base font-semibold tracking-widest uppercase mb-3"
+                  style={{
+                    background: 'linear-gradient(90deg, #38BDF8, #7DD3FC)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
                 >
                   {activeSlide.subtitle}
                 </h2>
                 <h1
-                  className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] font-serif"
+                  className="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] font-serif"
                   style={{ color: 'var(--text-on-dark)' }}
                 >
                   {activeSlide.title}
                 </h1>
               </div>
 
+              {/* Description */}
               <p
                 className="text-base sm:text-lg font-light max-w-2xl leading-relaxed"
                 style={{ color: 'var(--text-on-dark-secondary)' }}
@@ -223,39 +244,44 @@ export default function Hero() {
                 {activeSlide.description}
               </p>
 
+              {/* CTA Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
-                <Link href="/destinations" className="cta-button !rounded-2xl !py-3.5 !px-7">
+                <Link href="/destinations" className="cta-button !rounded-2xl !py-4 !px-8 text-base">
                   Explore Destination
                   <ArrowRight size={18} />
                 </Link>
                 <div
-                  className="glass-card flex items-center gap-2 px-4 py-3 !rounded-2xl text-sm font-medium"
+                  className="glass-card flex items-center gap-2.5 px-5 py-3.5 !rounded-2xl text-sm font-medium"
                   style={{ color: 'var(--text-on-dark)' }}
                 >
-                  <Clock size={16} style={{ color: 'var(--accent-teal)' }} />
-                  <span>Duration: {activeSlide.duration}</span>
+                  <Clock size={16} style={{ color: '#38BDF8' }} />
+                  <span>{activeSlide.duration}</span>
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Thumbnail Deck */}
+        {/* Thumbnail Deck — Glassmorphism Cards */}
         <div className="lg:col-span-5 flex flex-col items-end">
           <div
-            className="w-full flex items-center justify-between mb-3 text-xs"
+            className="w-full flex items-center justify-between mb-4 text-xs"
             style={{ color: 'var(--text-on-dark-muted)' }}
           >
             <span
-              className="font-semibold tracking-wider uppercase"
-              style={{ color: 'var(--accent-teal)' }}
+              className="font-bold tracking-widest uppercase text-[11px]"
+              style={{
+                background: 'linear-gradient(90deg, #0EA5E9, #38BDF8)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
             >
               Top Flight Deals
             </span>
             <div className="flex items-center gap-2">
               <button
                 onClick={handlePrev}
-                className="glass-card w-9 h-9 !rounded-full flex items-center justify-center active:scale-95 cursor-pointer"
+                className="glass-card w-10 h-10 !rounded-full flex items-center justify-center active:scale-90 cursor-pointer transition-transform"
                 style={{ color: 'var(--text-on-dark)' }}
                 aria-label="Previous Slide"
               >
@@ -263,7 +289,7 @@ export default function Hero() {
               </button>
               <button
                 onClick={handleNext}
-                className="glass-card w-9 h-9 !rounded-full flex items-center justify-center active:scale-95 cursor-pointer"
+                className="glass-card w-10 h-10 !rounded-full flex items-center justify-center active:scale-90 cursor-pointer transition-transform"
                 style={{ color: 'var(--text-on-dark)' }}
                 aria-label="Next Slide"
               >
@@ -272,45 +298,52 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="w-full space-y-2.5">
+          <div className="w-full space-y-3">
             {slides.map((slide, idx) => {
               const isActive = idx === current;
               return (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(idx)}
-                  className="w-full text-left p-2.5 rounded-2xl transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+                  className="w-full text-left p-3 rounded-2xl transition-all duration-500 flex items-center gap-4 group cursor-pointer"
                   style={{
                     background: isActive
-                      ? 'rgba(14, 165, 233, 0.15)'
-                      : 'rgba(0,0,0,0.30)',
+                      ? 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(56, 189, 248, 0.08))'
+                      : 'rgba(255, 255, 255, 0.04)',
                     border: isActive
-                      ? '1px solid rgba(14, 165, 233, 0.40)'
-                      : '1px solid rgba(255,255,255,0.08)',
-                    backdropFilter: 'blur(20px)',
-                    boxShadow: isActive ? '0 4px 20px rgba(14, 165, 233, 0.15)' : 'none',
+                      ? '1px solid rgba(14, 165, 233, 0.35)'
+                      : '1px solid rgba(255,255,255,0.06)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    boxShadow: isActive
+                      ? '0 8px 32px rgba(14, 165, 233, 0.12), inset 0 1px 0 rgba(255,255,255,0.06)'
+                      : 'inset 0 1px 0 rgba(255,255,255,0.03)',
                   }}
                 >
                   <div
                     className="relative w-16 h-12 rounded-xl overflow-hidden shrink-0"
-                    style={{ border: '1px solid rgba(255,255,255,0.10)' }}
+                    style={{
+                      border: isActive
+                        ? '1px solid rgba(14, 165, 233, 0.30)'
+                        : '1px solid rgba(255,255,255,0.08)',
+                    }}
                   >
                     <Image
                       src={slide.url}
                       alt={slide.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes="64px"
                       quality={50}
                     />
                     {isActive && (
                       <div
                         className="absolute inset-0 flex items-center justify-center"
-                        style={{ background: 'rgba(14, 165, 233, 0.30)' }}
+                        style={{ background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.30), rgba(56, 189, 248, 0.20))' }}
                       >
                         <div
                           className="w-2.5 h-2.5 rounded-full animate-ping"
-                          style={{ background: 'var(--accent-teal)' }}
+                          style={{ background: '#38BDF8' }}
                         />
                       </div>
                     )}
@@ -320,7 +353,7 @@ export default function Hero() {
                       <span
                         className="text-[11px] font-bold uppercase tracking-wider"
                         style={{
-                          color: isActive ? 'var(--accent-teal)' : 'var(--text-on-dark-muted)',
+                          color: isActive ? '#38BDF8' : 'var(--text-on-dark-muted)',
                         }}
                       >
                         {slide.category}
@@ -330,7 +363,7 @@ export default function Hero() {
                       </span>
                     </div>
                     <h4
-                      className="text-sm font-semibold truncate"
+                      className="text-sm font-semibold truncate mt-0.5"
                       style={{
                         color: isActive ? 'var(--text-on-dark)' : 'var(--text-on-dark-secondary)',
                       }}
@@ -345,27 +378,28 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Search Bar */}
-      <div className="relative z-20 max-w-7xl w-full mx-auto mt-4">
+      {/* Search Bar — Floating Glass Panel */}
+      <div className="relative z-20 max-w-7xl w-full mx-auto mt-6">
         <div
-          className="p-3 sm:p-4 rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 items-center"
+          className="p-3 sm:p-4 rounded-3xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 items-center"
           style={{
-            background: 'rgba(10, 22, 40, 0.80)',
-            backdropFilter: 'blur(32px)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.30)',
+            background: 'rgba(5, 13, 26, 0.75)',
+            backdropFilter: 'blur(40px)',
+            WebkitBackdropFilter: 'blur(40px)',
+            border: '1px solid rgba(14, 165, 233, 0.12)',
+            boxShadow: '0 16px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
           }}
         >
           <div
-            className="flex flex-col px-5 py-3 rounded-xl"
+            className="flex flex-col px-5 py-3.5 rounded-2xl transition-all duration-300"
             style={{
-              background: 'rgba(0,0,0,0.40)',
+              background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             <label
-              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-0.5"
-              style={{ color: 'var(--text-on-dark-muted)' }}
+              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-1"
+              style={{ color: '#38BDF8' }}
             >
               <MapPin size={12} /> Route
             </label>
@@ -377,15 +411,15 @@ export default function Hero() {
             />
           </div>
           <div
-            className="flex flex-col px-5 py-3 rounded-xl"
+            className="flex flex-col px-5 py-3.5 rounded-2xl transition-all duration-300"
             style={{
-              background: 'rgba(0,0,0,0.40)',
+              background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             <label
-              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-0.5"
-              style={{ color: 'var(--text-on-dark-muted)' }}
+              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-1"
+              style={{ color: '#38BDF8' }}
             >
               <Calendar size={12} /> Travel Date
             </label>
@@ -396,15 +430,15 @@ export default function Hero() {
             />
           </div>
           <div
-            className="flex flex-col px-5 py-3 rounded-xl"
+            className="flex flex-col px-5 py-3.5 rounded-2xl transition-all duration-300"
             style={{
-              background: 'rgba(0,0,0,0.40)',
+              background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             <label
-              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-0.5"
-              style={{ color: 'var(--text-on-dark-muted)' }}
+              className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 mb-1"
+              style={{ color: '#38BDF8' }}
             >
               <Users size={12} /> Travelers
             </label>
@@ -417,12 +451,14 @@ export default function Hero() {
               <option style={{ background: 'var(--bg-midnight)' }}>Family / Group (4+)</option>
             </select>
           </div>
-          <Link href="/services" className="cta-button w-full !rounded-xl !py-3.5 group">
+          <Link href="/services" className="cta-button w-full !rounded-2xl !py-3.5 group text-sm">
             <Search size={18} className="group-hover:scale-110 transition-transform" />
             <span>Search Flights</span>
           </Link>
         </div>
       </div>
+
+
     </section>
   );
 }

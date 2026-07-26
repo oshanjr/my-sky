@@ -39,25 +39,29 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="section-light py-28 px-6 relative overflow-hidden">
-      {/* Subtle ambient glow on light bg */}
-      <div className="glow-orb-light absolute top-1/3 -left-32 w-[500px] h-[500px] animate-glow-breathe" />
-      <div className="glow-orb-light absolute bottom-10 -right-32 w-[500px] h-[500px] animate-glow-breathe" style={{ animationDelay: '2s' }} />
+    <section id="services" className="gradient-mesh-light py-32 px-6 relative overflow-hidden">
+
+
+      {/* Ambient glow orbs */}
+      <div className="glow-orb-light absolute top-1/3 -left-40 w-[600px] h-[600px] animate-glow-breathe" />
+      <div className="glow-orb-light absolute bottom-10 -right-40 w-[600px] h-[600px] animate-glow-breathe" style={{ animationDelay: '2.5s' }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16 space-y-4">
+        {/* Section Header — Clean & Spacious */}
+        <div className="text-center mb-20 space-y-5">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase"
             style={{
+              background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.05))',
+              border: '1px solid rgba(14, 165, 233, 0.15)',
               color: 'var(--accent-teal)',
-              background: 'var(--accent-teal-frost)',
-              border: '1px solid var(--accent-teal-border)',
+              backdropFilter: 'blur(12px)',
             }}
           >
-            <Sparkles size={14} style={{ color: 'var(--accent-teal)' }} />
+            <Sparkles size={14} style={{ color: '#0EA5E9' }} />
             What We Offer
           </motion.div>
 
@@ -65,13 +69,13 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight font-serif"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight font-serif"
             style={{ color: 'var(--text-on-light)' }}
           >
             Our Travel{' '}
             <span
               style={{
-                background: 'linear-gradient(90deg, #0EA5E9, #0284C7)',
+                background: 'linear-gradient(90deg, #0369A1, #0EA5E9, #38BDF8)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -91,37 +95,45 @@ export default function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Service Cards — Glassmorphism on Light */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="light-card p-8 rounded-3xl group overflow-hidden relative cursor-pointer"
+              transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-panel-light p-9 group overflow-hidden relative cursor-pointer"
             >
-              {/* Hover glow overlay */}
+              {/* Gradient hover overlay */}
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600 rounded-3xl"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.05), transparent)',
+                  background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.04), rgba(56, 189, 248, 0.02), transparent)',
                 }}
               />
 
               <div className="relative z-10 flex flex-col h-full justify-between">
                 <div>
+                  {/* Gradient Icon Container */}
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-7 group-hover:scale-110 group-hover:shadow-lg transition-all duration-400 relative overflow-hidden"
                     style={{
-                      background: 'var(--accent-teal-frost)',
-                      border: '1px solid var(--accent-teal-border)',
+                      background: 'linear-gradient(135deg, #0369A1, #0EA5E9, #38BDF8)',
+                      boxShadow: '0 4px 16px rgba(14, 165, 233, 0.25)',
                     }}
                   >
-                    <service.icon className="w-7 h-7" style={{ color: 'var(--accent-teal)' }} />
+                    <service.icon className="w-6 h-6 text-white relative z-10" />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%)',
+                      }}
+                    />
                   </div>
                   <h3
-                    className="text-xl font-bold mb-3 transition-colors"
+                    className="text-xl font-bold mb-3 transition-colors duration-300"
                     style={{ color: 'var(--text-on-light)' }}
                   >
                     {service.title}
@@ -136,17 +148,19 @@ export default function Services() {
 
                 <Link
                   href="/contact"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-bold w-fit group/link"
+                  className="mt-9 inline-flex items-center gap-2 text-sm font-bold w-fit group/link"
                   style={{ color: 'var(--accent-teal)' }}
                 >
                   <span>Learn More</span>
-                  <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="group-hover/link:translate-x-1.5 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+
     </section>
   );
 }

@@ -6,10 +6,11 @@ import { useState, useEffect } from 'react';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Tour Packages', href: '#packages' },
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Tour Packages', href: '/packages' },
+  { label: 'Destinations', href: '/destinations' },
+  { label: 'Services', href: '/services' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
@@ -28,16 +29,16 @@ export default function Navbar() {
         className={`max-w-7xl mx-auto flex items-center justify-between px-6 py-3.5 rounded-full transition-all duration-300 ${
           scrolled
             ? 'glass-card shadow-lg bg-white/80 backdrop-blur-md border border-gray-200/80'
-            : 'bg-white/40 backdrop-blur-sm border border-white/40'
+            : 'bg-white/50 backdrop-blur-md border border-white/40 shadow-sm'
         }`}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-sky-500 to-purple-950 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
             <Compass size={20} className="text-white" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-gray-900 font-sans">
-            My Sky <span className="font-serif italic font-normal text-gray-700">Travels</span>
+          <span className="text-xl font-bold tracking-tight text-slate-900 font-sans">
+            My Sky <span className="font-serif italic font-normal text-slate-700">Travels</span>
           </span>
         </Link>
 
@@ -47,7 +48,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-black transition-colors"
+              className="text-sm font-medium text-slate-700 hover:text-black transition-colors"
             >
               {item.label}
             </Link>
@@ -56,7 +57,7 @@ export default function Navbar() {
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          <Link href="#contact" className="btn-black-pill text-xs px-5 py-2.5">
+          <Link href="/contact" className="btn-black-pill text-xs px-5 py-2.5">
             Plan Your Trip
             <ArrowUpRight size={15} />
           </Link>
@@ -78,7 +79,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-base font-semibold text-gray-800 py-2.5 px-4 rounded-xl hover:bg-gray-100 transition-colors"
+              className="text-base font-semibold text-slate-800 py-2.5 px-4 rounded-xl hover:bg-slate-100 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -86,7 +87,7 @@ export default function Navbar() {
           ))}
           <div className="mt-2 pt-4 border-t border-gray-100">
             <Link
-              href="#contact"
+              href="/contact"
               className="btn-black-pill w-full justify-center py-3"
               onClick={() => setIsOpen(false)}
             >

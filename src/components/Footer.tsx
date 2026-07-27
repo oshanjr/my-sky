@@ -5,8 +5,9 @@ import { Compass, Mail, Phone, MapPin, Send, Instagram, Facebook, Twitter } from
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111318] text-white pt-20 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <footer className="bg-[#0b0b13] bg-gradient-to-br from-sky-600/30 to-purple-950/60 backdrop-blur-3xl border-t border-white/10 text-white pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-[#111318]/0 to-[#111318]/0 pointer-events-none"></div>
+      <div className="relative max-w-7xl mx-auto space-y-16 z-10">
         
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">

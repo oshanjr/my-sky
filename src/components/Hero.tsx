@@ -1,30 +1,54 @@
 'use client';
 
-import { Search, MapPin, Calendar, Users, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+const heroImages = [
+  "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000&auto=format&fit=crop", // Aerial palms
+  "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=2000&auto=format&fit=crop", // Ocean view
+  "https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=2000&auto=format&fit=crop"  // Cultural / Nature
+];
+
 export default function Hero() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-[92vh] w-full flex flex-col items-center justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
-      {/* Aerial Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000&auto=format&fit=crop"
-          alt="Aerial view of Sri Lanka palms and coast"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        {/* Soft dark vignette gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0 bg-black">
+        {heroImages.map((src, idx) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentIdx ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          >
+            <Image
+              src={src}
+              alt={`Sri Lanka Hero Image ${idx + 1}`}
+              fill
+              className="object-cover object-center"
+              priority={idx === 0} // Only preload the first image
+            />
+          </div>
+        ))}
+        {/* Dark vignette gradient overlay - made slightly darker as requested */}
+        <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center mt-16 sm:mt-24 space-y-6">
+      <div className="relative z-30 max-w-5xl mx-auto text-center space-y-6">
         
         {/* White Glass Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/40 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-sm">
           <span className="text-xs font-semibold uppercase tracking-wider text-white">
             Tour Packages
           </span>
@@ -36,7 +60,7 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-serif italic tracking-wide max-w-3xl mx-auto drop-shadow">
+        <p className="text-xl sm:text-2xl md:text-3xl text-white/95 font-serif italic tracking-wide max-w-3xl mx-auto drop-shadow">
           Embark on a Journey That's Uniquely Yours
         </p>
 
@@ -45,58 +69,18 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Floating Glass Search Panel at Bottom */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto mt-12 mb-4">
-        <div className="glass-card bg-white/70 backdrop-blur-xl p-4 sm:p-6 rounded-3xl sm:rounded-full border border-white/60 shadow-2xl">
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
-            
-            {/* Destination Input */}
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/60 rounded-full border border-gray-200/60">
-              <MapPin size={18} className="text-gray-600 flex-shrink-0" />
-              <div className="flex flex-col text-left">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Destination</span>
-                <input 
-                  type="text" 
-                  placeholder="Sigiriya, Ella, Kandy..." 
-                  className="bg-transparent text-xs font-semibold text-gray-900 focus:outline-none w-full"
-                />
-              </div>
-            </div>
-
-            {/* Duration Input */}
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/60 rounded-full border border-gray-200/60">
-              <Calendar size={18} className="text-gray-600 flex-shrink-0" />
-              <div className="flex flex-col text-left">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Duration</span>
-                <input 
-                  type="text" 
-                  placeholder="7 - 14 Days" 
-                  className="bg-transparent text-xs font-semibold text-gray-900 focus:outline-none w-full"
-                />
-              </div>
-            </div>
-
-            {/* Travelers Input */}
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/60 rounded-full border border-gray-200/60">
-              <Users size={18} className="text-gray-600 flex-shrink-0" />
-              <div className="flex flex-col text-left">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Guests</span>
-                <input 
-                  type="text" 
-                  placeholder="2 Adults" 
-                  className="bg-transparent text-xs font-semibold text-gray-900 focus:outline-none w-full"
-                />
-              </div>
-            </div>
-
-            {/* Search Button */}
-            <button className="btn-black-pill py-3.5 px-6 rounded-full w-full justify-center text-sm shadow-lg">
-              <Search size={16} />
-              Find Packages
-            </button>
-
-          </div>
-        </div>
+      {/* Slider indicators */}
+      <div className="absolute bottom-8 z-30 flex items-center justify-center gap-3">
+        {heroImages.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIdx(idx)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              idx === currentIdx ? 'w-8 bg-white' : 'bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
       </div>
 
     </section>

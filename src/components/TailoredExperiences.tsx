@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { Palmtree, Landmark, Mountain, Sparkles, Compass, ShieldAlert } from 'lucide-react';
 
 const categories = [
-  { name: 'Beach & Wildlife', bg: 'bg-blue-50/80 border-blue-100', icon: Palmtree },
-  { name: 'Cultural Tours', bg: 'bg-emerald-50/80 border-emerald-100', icon: Landmark },
-  { name: 'Adventure & Hiking', bg: 'bg-amber-50/80 border-amber-100', icon: Mountain },
-  { name: 'Luxury & Wellness', bg: 'bg-rose-50/80 border-rose-100', icon: Sparkles },
+  { name: 'Beach & Wildlife', bg: 'bg-blue-100/90 border-blue-200 text-blue-900', icon: Palmtree },
+  { name: 'Cultural Tours', bg: 'bg-emerald-100/90 border-emerald-200 text-emerald-900', icon: Landmark },
+  { name: 'Adventure & Hiking', bg: 'bg-amber-100/90 border-amber-200 text-amber-900', icon: Mountain },
+  { name: 'Luxury & Wellness', bg: 'bg-rose-100/90 border-rose-200 text-rose-900', icon: Sparkles },
 ];
 
 const packages = [
@@ -61,10 +61,10 @@ export default function TailoredExperiences() {
       
       {/* Section Header */}
       <div className="text-center space-y-3">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-gray-900 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-slate-900 tracking-tight">
           Tailored Experiences Just for You
         </h2>
-        <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
           Explore handpicked tour packages designed to immerse you in Sri Lanka's breathtaking culture, wildlife, and natural beauty.
         </p>
       </div>
@@ -78,10 +78,10 @@ export default function TailoredExperiences() {
               key={cat.name}
               className={`flex items-center gap-3 px-5 py-2.5 rounded-full border ${cat.bg} backdrop-blur-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer`}
             >
-              <span className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs">
+              <span className="w-6 h-6 rounded-full bg-gradient-to-br from-sky-500 to-purple-950 text-white flex items-center justify-center text-xs">
                 <Icon size={13} />
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-gray-800">
+              <span className="text-xs sm:text-sm font-semibold">
                 {cat.name}
               </span>
             </button>
@@ -96,24 +96,24 @@ export default function TailoredExperiences() {
           return (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-5 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+              className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
             >
               {/* Card Header Info */}
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl sm:text-5xl font-bold text-gray-900 font-sans tracking-tight">
+                    <span className="text-4xl sm:text-5xl font-bold text-slate-900 font-sans tracking-tight">
                       {pkg.days}
                     </span>
-                    <span className="text-sm font-bold text-gray-600 uppercase">
+                    <span className="text-sm font-bold text-slate-600 uppercase">
                       {pkg.label}
                     </span>
                   </div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mt-1">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mt-1">
                     {pkg.title}
                   </span>
                 </div>
-                <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-700 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-purple-950 group-hover:border-transparent group-hover:text-white transition-all duration-300">
                   <Icon size={16} />
                 </div>
               </div>

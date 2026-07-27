@@ -1,114 +1,174 @@
 'use client';
 
-import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import Image from 'next/image';
+import { Send, CheckCircle } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-bg-surface-alt relative overflow-hidden">
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="white-card rounded-[2.5rem] overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            
-            {/* Left Column — Image / Info Overlay */}
-            <div className="relative p-10 lg:p-16 flex flex-col justify-between min-h-[400px] lg:min-h-[600px] bg-brand-navy">
-              <Image 
-                src="https://images.unsplash.com/photo-1544644181-1484b3f8c8b4?q=80&w=800&auto=format&fit=crop"
-                alt="Travel map and passport"
-                fill
-                className="object-cover opacity-40 mix-blend-overlay"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/20 to-brand-navy/80" />
-              
-              <div className="relative z-10 space-y-6">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white font-serif">
-                  Let's Plan Your <br/>
-                  <span className="text-brand-cyan-light">Next Journey</span>
-                </h2>
-                <p className="text-white/80 max-w-sm text-lg">
-                  Reach out for tailored flight bookings, visa processing, or custom holiday itineraries.
-                </p>
-              </div>
-
-              <div className="relative z-10 space-y-6 mt-12 lg:mt-0">
-                {[
-                  { icon: Mail, label: 'Email', value: 'info@myskytravels.com' },
-                  { icon: Phone, label: 'Call', value: '+94 77 523 1525' },
-                  { icon: MapPin, label: 'Office', value: "198, St. Joseph's St, Negombo" },
-                ].map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-4"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20">
-                      <item.icon size={20} className="text-brand-cyan-light" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider text-white/60 font-semibold">{item.label}</p>
-                      <p className="text-white font-medium">{item.value}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Column — Contact Form */}
-            <div className="p-10 lg:p-16 bg-white">
-              <form className="space-y-6">
-                <h3 className="text-2xl font-bold text-brand-navy mb-8">Send a Message</h3>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-text-muted">Full Name</label>
-                    <input
-                      type="text"
-                      placeholder="John Doe"
-                      className="input-field rounded-xl px-4 py-3"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold uppercase tracking-wider text-text-muted">Email</label>
-                    <input
-                      type="email"
-                      placeholder="john@example.com"
-                      className="input-field rounded-xl px-4 py-3"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-text-muted">Service Required</label>
-                  <select className="input-field rounded-xl px-4 py-3 appearance-none bg-transparent">
-                    <option>Flight Booking</option>
-                    <option>Visa Assistance</option>
-                    <option>Custom Holiday Package</option>
-                    <option>General Inquiry</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold uppercase tracking-wider text-text-muted">Message</label>
-                  <textarea
-                    rows={4}
-                    placeholder="How can we help you?"
-                    className="input-field rounded-xl px-4 py-3 resize-none"
-                  />
-                </div>
-
-                <button className="btn-primary w-full rounded-xl py-4 mt-2">
-                  <Send size={18} />
-                  Send Message
-                </button>
-              </form>
-            </div>
-            
+    <section id="contact" className="py-12 px-4 sm:px-6 relative overflow-hidden">
+      <div className="max-w-3xl mx-auto relative z-10">
+        
+        {/* Main Form Card */}
+        <div className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-slate-200">
+          
+          <div className="mb-10 space-y-4">
+            <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block">
+              Travel Inquiry
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-serif">
+              Tell us about your <span className="text-sky-600">trip</span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+              Flights, visas, a custom tour, or just advice — send the basics and we'll reply from My Sky Travels. No passport scans or payment details needed here.
+            </p>
           </div>
+
+          <form className="space-y-6">
+            
+            {/* Service Type */}
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700">What do you need?</label>
+              <div className="relative">
+                <select className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 appearance-none transition-all">
+                  <option>Flight tickets</option>
+                  <option>Visa assistance</option>
+                  <option>Custom tour / package</option>
+                  <option>Travel consultation</option>
+                  <option>Something else</option>
+                </select>
+                <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Destination */}
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700">Destination</label>
+              <input
+                type="text"
+                placeholder="e.g. Japan, Singapore, Vietnam"
+                className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400"
+              />
+            </div>
+
+            {/* Grid 1: Name & Email */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Your name</label>
+                <input
+                  type="text"
+                  placeholder="Full name"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Email</label>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400"
+                />
+              </div>
+            </div>
+
+            {/* Grid 2: Phone & Budget */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Phone / WhatsApp <span className="text-slate-400 font-medium">(optional)</span></label>
+                <input
+                  type="tel"
+                  placeholder="+94 ..."
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Budget <span className="text-slate-400 font-medium">(optional)</span></label>
+                <input
+                  type="text"
+                  placeholder="e.g. mid-range, LKR 400,000"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400"
+                />
+              </div>
+            </div>
+
+            {/* Grid 3: Dates */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Depart date <span className="text-slate-400 font-medium">(optional)</span></label>
+                <input
+                  type="date"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all text-slate-500"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Return date <span className="text-slate-400 font-medium">(optional)</span></label>
+                <input
+                  type="date"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all text-slate-500"
+                />
+              </div>
+            </div>
+
+            {/* Grid 4: Travelers */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Adults</label>
+                <input
+                  type="number"
+                  min="1"
+                  defaultValue="2"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-slate-700">Children</label>
+                <input
+                  type="number"
+                  min="0"
+                  defaultValue="0"
+                  className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Details Textarea */}
+            <div className="space-y-2 pt-2">
+              <label className="text-sm font-bold text-slate-700">Anything else we should know?</label>
+              <textarea
+                rows={4}
+                placeholder="Pace, interests, visa status, preferred airlines..."
+                className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all resize-none placeholder:text-slate-400"
+              />
+            </div>
+
+            {/* Agreement Checkbox */}
+            <div className="flex items-start gap-3 py-4">
+              <input 
+                type="checkbox" 
+                id="agreement" 
+                className="mt-1 w-4 h-4 text-sky-600 bg-slate-50 border-slate-300 rounded focus:ring-sky-500"
+              />
+              <label htmlFor="agreement" className="text-xs sm:text-sm text-slate-600 leading-relaxed cursor-pointer select-none">
+                I agree that My Sky Travels may contact me about this travel request. Details are emailed to the agency inbox and are not stored in a website database.
+              </label>
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-2">
+              <button 
+                type="button" 
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-500 to-purple-600 hover:from-sky-400 hover:to-purple-500 text-white font-semibold rounded-full px-8 py-3.5 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              >
+                Send inquiry
+              </button>
+            </div>
+
+            {/* Footer text */}
+            <div className="pt-6 border-t border-slate-100 text-xs sm:text-sm text-slate-500">
+              Or email <a href="mailto:info@myskytravels.com" className="font-semibold text-sky-600 hover:underline">info@myskytravels.com</a> / message on <a href="#" className="font-semibold text-sky-600 hover:underline">Facebook</a>.
+            </div>
+
+          </form>
         </div>
       </div>
     </section>

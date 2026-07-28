@@ -10,13 +10,13 @@ export default function StatsHighlight() {
       {/* Banner 1: Explore, Experience & Embrace */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-gray-900 tracking-tight max-w-4xl mx-auto leading-tight">
-          Explore, Experience & Embrace Wonders of Sri Lanka
+          Explore, Experience & Embrace Wonders of the World
         </h2>
 
         <div className="relative h-[350px] sm:h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl">
           <Image
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1800&auto=format&fit=crop"
-            alt="Sri Lanka Coastline Waves"
+            src="https://images.unsplash.com/photo-1522083111811-37d45a7bd786?q=80&w=1800&auto=format&fit=crop"
+            alt="Majestic Mountain Range"
             fill
             className="object-cover"
           />
@@ -31,11 +31,11 @@ export default function StatsHighlight() {
           {/* Left Text */}
           <div className="lg:col-span-6 space-y-6">
             <h2 className="text-4xl sm:text-5xl font-bold font-serif text-gray-900 leading-tight">
-              Embrace the Wonders of Sri Lanka
+              Embrace the Wonders of the World
             </h2>
 
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-sans">
-              From majestic wildlife safaris in Yala to tranquil mountain tea gardens in Nuwara Eliya, we design journeys that resonate with your spirit. Experience unmatched hospitality with 24/7 dedicated local assistance.
+              From majestic safaris in Africa to tranquil mountain escapes in the Swiss Alps, we design journeys that resonate with your spirit. Experience unmatched hospitality with 24/7 dedicated local assistance.
             </p>
 
             <div className="pt-2">
@@ -86,8 +86,8 @@ export default function StatsHighlight() {
             {/* Traveler Swing Image */}
             <div className="relative rounded-3xl overflow-hidden shadow-xl min-h-[280px]">
               <Image
-                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600&auto=format&fit=crop"
-                alt="Traveler on coconut tree swing"
+                src="https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop"
+                alt="Traveler on African Safari"
                 fill
                 className="object-cover"
               />

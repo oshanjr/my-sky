@@ -6,8 +6,8 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "My Sky Travels - Sri Lanka",
-  description: "A premium travel agency website for Sri Lanka featuring a liquid glass UI.",
+  title: "My Sky Travels - Global Journeys",
+  description: "A premium outbound travel agency for global journeys featuring a liquid glass UI.",
 };
 
 export default function RootLayout({

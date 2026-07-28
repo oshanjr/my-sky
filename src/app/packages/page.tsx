@@ -13,10 +13,10 @@ export default function PackagesPage() {
             Curated Itineraries
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-slate-900 tracking-tight">
-            Sri Lanka Tour Packages
+            Global Tour Packages
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Choose from custom-crafted journeys ranging from 4-day getaways to 16-day grand island explorations.
+            Choose from custom-crafted journeys ranging from 4-day getaways to 16-day grand global explorations.
           </p>
         </section>
 

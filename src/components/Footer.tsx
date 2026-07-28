@@ -24,7 +24,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Your trusted travel agency for Sri Lanka holiday packages, visa consultations, air tickets, and luxury island experiences.
+              Your trusted travel agency for worldwide holiday packages, visa consultations, air tickets, and luxury international experiences.
             </p>
 
             <div className="flex items-center gap-3">
@@ -61,11 +61,11 @@ export default function Footer() {
               Popular Tours
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-white transition-colors">14 Days Grand Island Tour</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">14 Days Europe Explorer</a></li>
               <li><a href="#" className="hover:text-white transition-colors">10 Days Classic Highlights</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">7 Days Essential Escapes</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">10 Days Wildlife & Safari</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">16 Days Ultimate Sri Lanka</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">7 Days Maldives Escape</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">10 Days African Safari</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">16 Days Ultimate Japan</a></li>
             </ul>
           </div>
 
@@ -75,7 +75,7 @@ export default function Footer() {
               Stay Updated
             </h4>
             <p className="text-xs text-gray-400">
-              Subscribe to get exclusive Sri Lanka tour deals & travel tips.
+              Subscribe to get exclusive global tour deals & travel tips.
             </p>
             <div className="flex items-center bg-white/10 rounded-full p-1.5 border border-white/15">
               <input 

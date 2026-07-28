@@ -21,7 +21,7 @@ export default function AgencyOverview() {
           </h2>
 
           <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-sans">
-            We specialize in handcrafted island tours, seamless visa consultations, flight ticketing, and bespoke luxury getaways. Our team of island experts ensures that every step of your journey is handled with warmth, safety, and excellence.
+            We specialize in handcrafted international tours, seamless visa consultations, flight ticketing, and bespoke luxury getaways. Our team of global travel experts ensures that every step of your journey is handled with warmth, safety, and excellence.
           </p>
 
           <div>
@@ -36,8 +36,8 @@ export default function AgencyOverview() {
         <div className="lg:col-span-5 relative">
           <div className="relative h-[340px] sm:h-[400px] w-full rounded-3xl overflow-hidden shadow-xl">
             <Image
-              src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800&auto=format&fit=crop"
-              alt="Sri Lanka Tea Hills"
+              src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop"
+              alt="Paris Eiffel Tower"
               fill
               className="object-cover"
             />
@@ -56,7 +56,7 @@ export default function AgencyOverview() {
           </h2>
           
           <p className="text-gray-600 leading-relaxed text-base sm:text-lg font-sans">
-            Our mission is to connect travelers with the authentic heart of Sri Lanka—from ancient UNESCO heritage sites and misty mountain trails to serene golden beaches—offering sustainable, personalized, and world-class travel experiences.
+            Our mission is to connect travelers with breathtaking global destinations—from vibrant cityscapes and historical wonders to pristine exotic beaches—offering sustainable, personalized, and world-class outbound travel experiences.
           </p>
 
           <div>
@@ -71,16 +71,16 @@ export default function AgencyOverview() {
         <div className="lg:col-span-6 grid grid-cols-2 gap-4">
           <div className="relative h-[220px] rounded-2xl overflow-hidden shadow-md">
             <Image
-              src="https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=600&auto=format&fit=crop"
-              alt="Ancient Temple Sri Lanka"
+              src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop"
+              alt="Japan Mt Fuji"
               fill
               className="object-cover"
             />
           </div>
           <div className="relative h-[220px] rounded-2xl overflow-hidden shadow-md">
             <Image
-              src="https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?q=80&w=600&auto=format&fit=crop"
-              alt="Elephants Bathing"
+              src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop"
+              alt="Maldives Tropical Beach"
               fill
               className="object-cover"
             />

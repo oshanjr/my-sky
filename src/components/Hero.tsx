@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const heroImages = [
-  "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000&auto=format&fit=crop", // Aerial palms
-  "https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=2000&auto=format&fit=crop", // Ocean view
-  "https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=2000&auto=format&fit=crop"  // Cultural / Nature
+  "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2000&auto=format&fit=crop", // Japan
+  "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2000&auto=format&fit=crop", // Maldives
+  "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2000&auto=format&fit=crop"  // Paris
 ];
 
 export default function Hero() {
@@ -33,7 +33,7 @@ export default function Hero() {
           >
             <Image
               src={src}
-              alt={`Sri Lanka Hero Image ${idx + 1}`}
+              alt={`Global Destination Hero Image ${idx + 1}`}
               fill
               className="object-cover object-center"
               priority={idx === 0} // Only preload the first image
@@ -56,7 +56,7 @@ export default function Hero() {
 
         {/* Huge Serif Title */}
         <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white font-serif drop-shadow-md">
-          Sri Lanka
+          The World
         </h1>
 
         {/* Subtitle */}
@@ -65,7 +65,7 @@ export default function Hero() {
         </p>
 
         <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto font-sans leading-relaxed">
-          Curated travel itineraries, authentic cultural experiences, and tailor-made holidays across paradise island.
+          Curated travel itineraries, authentic cultural experiences, and tailor-made holidays across the globe.
         </p>
       </div>
 

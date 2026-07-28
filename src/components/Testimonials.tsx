@@ -46,7 +46,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-xs text-gray-800 font-medium italic">
-                "Seamless visa assistance and stunning luxury hotels in Ella & Bentota. Flawless execution."
+                "Seamless visa assistance and stunning luxury hotels in Dubai & Abu Dhabi. Flawless execution."
               </p>
               <span className="text-[11px] font-bold text-gray-900 block">
                 — Marcus L., Germany
@@ -76,7 +76,7 @@ export default function Testimonials() {
           </h2>
 
           <p className="text-base text-gray-600 leading-relaxed font-sans">
-            Hear stories from real travelers who embarked on unforgettable journeys with My Sky Travels across Sri Lanka.
+            Hear stories from real travelers who embarked on unforgettable journeys with My Sky Travels across the globe.
           </p>
 
           <div>

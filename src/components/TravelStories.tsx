@@ -5,34 +5,34 @@ import { ArrowRight, Bookmark } from 'lucide-react';
 
 const articles = [
   {
-    title: 'Why Sri Lanka is the Ultimate 2024 Destination',
+    title: 'Why Japan is the Ultimate 2024 Destination',
     category: 'Travel Guide',
-    image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
   },
   {
-    title: "Ella's Secret Waterfalls & Scenic Train Journey",
+    title: "The Magic of Kyoto's Temples & Gardens",
     category: 'Adventure',
-    image: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
   },
   {
-    title: 'Top 10 Hidden Gems in Sri Lanka Hill Country',
+    title: 'Top 10 Hidden Gems in Southeast Asia',
     category: 'Heritage',
-    image: 'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
   },
   {
-    title: 'A Tea Country Experience: Nuwara Eliya Uncovered',
+    title: 'A Culinary Journey Through the Streets of Bangkok',
     category: 'Culture',
     image: 'https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=600&auto=format&fit=crop',
   },
   {
-    title: 'Whale Watching in Mirissa: Best Season & Tips',
+    title: 'Island Hopping in the Maldives: Best Season & Tips',
     category: 'Wildlife',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
   },
   {
-    title: 'A Culinary Journey Through Traditional Ceylonese Spices',
+    title: 'A Culinary Journey Through Traditional Italian Spices',
     category: 'Food & Dining',
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=600&auto=format&fit=crop',
   },
 ];
 
@@ -46,7 +46,7 @@ export default function TravelStories() {
           Travel Stories & Guides
         </h2>
         <p className="text-sm sm:text-base text-gray-600 max-w-lg mx-auto">
-          Inspiration, local tips, and curated itineraries to help you plan your next Ceylonese adventure.
+          Inspiration, local tips, and curated itineraries to help you plan your next global adventure.
         </p>
       </div>
 

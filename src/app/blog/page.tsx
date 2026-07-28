@@ -7,8 +7,8 @@ import { ArrowRight, Calendar, User } from 'lucide-react';
 const blogPosts = [
   {
     id: 1,
-    title: '10 Hidden Gems in Sri Lanka You Must Visit',
-    excerpt: 'Beyond the popular tourist trails lie breathtaking untouched beaches, serene mountain villages, and ancient ruins waiting to be explored.',
+    title: '10 Hidden Gems in Japan You Must Visit',
+    excerpt: 'Beyond the popular tourist trails lie breathtaking untouched landscapes, serene mountain villages, and ancient shrines waiting to be explored.',
     date: 'Oct 12, 2023',
     author: 'Oshan',
     category: 'Travel Guide',
@@ -16,8 +16,8 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: 'A Culinary Journey Through Colombo',
-    excerpt: 'Discover the rich, spicy, and vibrant street food culture of Sri Lanka\'s capital city. From Kottu Roti to fresh seafood.',
+    title: 'A Culinary Journey Through Tokyo',
+    excerpt: 'Discover the rich, umami, and vibrant street food culture of Japan\'s capital city. From Ramen to fresh sushi.',
     date: 'Sep 28, 2023',
     author: 'Sarah',
     category: 'Food & Culture',
@@ -25,8 +25,8 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: 'The Ultimate Guide to Sri Lankan Safaris',
-    excerpt: 'Everything you need to know about spotting leopards in Yala and witnessing the elephant gathering in Minneriya.',
+    title: 'The Ultimate Guide to African Safaris',
+    excerpt: 'Everything you need to know about spotting lions in the Serengeti and witnessing the great migration.',
     date: 'Sep 15, 2023',
     author: 'David',
     category: 'Wildlife',
@@ -34,7 +34,7 @@ const blogPosts = [
   },
   {
     id: 4,
-    title: 'Best Time to Visit Sri Lanka: Weather Guide',
+    title: 'Best Time to Visit Europe: Weather Guide',
     excerpt: 'Planning your trip? Learn about the two monsoon seasons and how to chase the sun across the island all year round.',
     date: 'Aug 30, 2023',
     author: 'Oshan',
@@ -43,7 +43,7 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: 'Luxury Resorts of the Southern Coast',
+    title: 'Luxury Resorts of the Amalfi Coast',
     excerpt: 'A curated list of the most breathtaking luxury boutique hotels and eco-resorts nestled along the southern beaches.',
     date: 'Aug 14, 2023',
     author: 'Elena',
@@ -52,7 +52,7 @@ const blogPosts = [
   },
   {
     id: 6,
-    title: 'Hiking Adam\'s Peak: What to Expect',
+    title: 'Hiking the Swiss Alps: What to Expect',
     excerpt: 'A detailed breakdown of the sacred pilgrimage climb, the best routes, and how to prepare for the spectacular sunrise view.',
     date: 'Jul 22, 2023',
     author: 'Mark',
@@ -76,7 +76,7 @@ export default function BlogPage() {
             Our Blog
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Stories, tips, and insights from our travel experts to help you plan the perfect Sri Lankan adventure.
+            Stories, tips, and insights from our travel experts to help you plan the perfect global adventure.
           </p>
         </section>
 

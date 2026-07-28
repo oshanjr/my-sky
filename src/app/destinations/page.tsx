@@ -10,13 +10,13 @@ export default function DestinationsPage() {
         {/* Header */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center space-y-4">
           <span className="text-xs uppercase font-bold tracking-widest text-emerald-800 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100 inline-block">
-            Island Destinations
+            Global Destinations
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-gray-900 tracking-tight">
-            Explore Sri Lanka & Beyond
+            Explore The World
           </h1>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Discover iconic landmarks, pristine beaches, misty tea gardens, and ancient UNESCO heritage sites across Sri Lanka.
+            Discover iconic landmarks, pristine beaches, vibrant cityscapes, and ancient UNESCO heritage sites across the globe.
           </p>
         </section>
 

@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Inquiry {
+  id          String   @id @default(cuid())
+  serviceType String
+  destination String?
+  name        String
+  email       String
+  phone       String?
+  budget      String?
+  departDate  String?
+  returnDate  String?
+  adults      Int      @default(2)
+  children    Int      @default(0)
+  details     String?
+  createdAt   DateTime @default(now())
+}

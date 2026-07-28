@@ -14,9 +14,9 @@ const packages = [
   {
     days: 14,
     label: 'Days',
-    title: 'GRAND ISLAND TOUR',
+    title: 'GRAND EUROPE TOUR',
     icon: Compass,
-    image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=600&auto=format&fit=crop',
   },
   {
     days: 10,
@@ -28,16 +28,16 @@ const packages = [
   {
     days: 7,
     label: 'Days',
-    title: 'ESSENTIAL ESCAPES',
+    title: 'MALDIVES ESCAPE',
     icon: Palmtree,
-    image: 'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
   },
   {
     days: 10,
     label: 'Days',
-    title: 'WILDLIFE & SAFARI',
+    title: 'AFRICAN SAFARI',
     icon: ShieldAlert,
-    image: 'https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
   },
   {
     days: 4,
@@ -49,9 +49,9 @@ const packages = [
   {
     days: 16,
     label: 'Days',
-    title: 'ULTIMATE SRI LANKA',
+    title: 'ULTIMATE JAPAN',
     icon: Sparkles,
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function TailoredExperiences() {
           Tailored Experiences Just for You
         </h2>
         <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
-          Explore handpicked tour packages designed to immerse you in Sri Lanka's breathtaking culture, wildlife, and natural beauty.
+          Explore handpicked tour packages designed to immerse you in the world's most breathtaking cultures, wildlife, and natural wonders.
         </p>
       </div>
 

@@ -1,95 +1,70 @@
-'use client';
-
+import { PrismaClient } from '@prisma/client';
 import Image from 'next/image';
-import { ArrowRight, Bookmark } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, BookOpen } from 'lucide-react';
 
-const articles = [
-  {
-    title: 'Why Japan is the Ultimate 2024 Destination',
-    category: 'Travel Guide',
-    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: "The Magic of Kyoto's Temples & Gardens",
-    category: 'Adventure',
-    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'Top 10 Hidden Gems in Southeast Asia',
-    category: 'Heritage',
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'A Culinary Journey Through the Streets of Bangkok',
-    category: 'Culture',
-    image: 'https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'Island Hopping in the Maldives: Best Season & Tips',
-    category: 'Wildlife',
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    title: 'A Culinary Journey Through Traditional Italian Spices',
-    category: 'Food & Dining',
-    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=600&auto=format&fit=crop',
-  },
-];
+const prisma = new PrismaClient();
 
-export default function TravelStories() {
+export default async function TravelStories() {
+  const posts = await prisma.blogPost.findMany({
+    orderBy: { createdAt: 'desc' },
+    take: 3
+  });
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      
-      {/* Header */}
-      <div className="text-center space-y-3">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-gray-900 tracking-tight">
-          Travel Stories & Guides
-        </h2>
-        <p className="text-sm sm:text-base text-gray-600 max-w-lg mx-auto">
-          Inspiration, local tips, and curated itineraries to help you plan your next global adventure.
-        </p>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-slate-50/50 rounded-[3rem]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-16 px-4">
+        <div className="space-y-4 max-w-2xl text-center sm:text-left">
+          <span className="text-sm font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-4 py-1.5 rounded-full border border-indigo-100">
+            Travel Journal
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight font-serif">
+            Stories from the <span className="text-indigo-600">Road</span>
+          </h2>
+        </div>
+        <Link 
+          href="/blog"
+          className="inline-flex items-center gap-2 text-indigo-700 font-semibold hover:text-indigo-800 transition-colors bg-indigo-50 hover:bg-indigo-100 px-6 py-3 rounded-full shrink-0 group border border-indigo-100"
+        >
+          Read all stories
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {articles.map((art, idx) => (
-          <div
-            key={idx}
-            className="bg-white rounded-3xl p-4 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-          >
-            <div>
-              {/* Image */}
-              <div className="relative h-44 w-full rounded-2xl overflow-hidden mb-4">
-                <Image
-                  src={art.image}
-                  alt={art.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-800 shadow">
-                  <Bookmark size={14} />
-                </span>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <Link key={post.id} href={`/blog`} className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-bold text-slate-900">
+                {post.category}
               </div>
-
-              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 inline-block mb-2">
-                {art.category}
-              </span>
-
-              <h3 className="text-base font-bold text-gray-900 leading-snug group-hover:text-black transition-colors line-clamp-2">
-                {art.title}
+            </div>
+            
+            <div className="p-6 flex flex-col flex-1">
+              <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                <BookOpen size={14} />
+                <span>5 min read</span>
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                {post.title}
               </h3>
+              <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
+                {post.excerpt}
+              </p>
+              <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                <span className="text-xs font-bold text-slate-900 uppercase">{post.author}</span>
+                <span className="text-indigo-600 font-semibold text-sm group-hover:underline">Read more</span>
+              </div>
             </div>
-
-            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
-              <span className="btn-black-pill text-[11px] px-3.5 py-1.5">
-                Read Article
-                <ArrowRight size={12} />
-              </span>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
-
     </section>
   );
 }

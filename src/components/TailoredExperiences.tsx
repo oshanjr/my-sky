@@ -1,78 +1,47 @@
-'use client';
-
+import { PrismaClient } from '@prisma/client';
+import * as LucideIcons from 'lucide-react';
+import Link from 'next/link';
 import Image from 'next/image';
-import { Palmtree, Landmark, Mountain, Sparkles, Compass, ShieldAlert } from 'lucide-react';
+
+const prisma = new PrismaClient();
 
 const categories = [
-  { name: 'Beach & Wildlife', bg: 'bg-blue-100/90 border-blue-200 text-blue-900', icon: Palmtree },
-  { name: 'Cultural Tours', bg: 'bg-emerald-100/90 border-emerald-200 text-emerald-900', icon: Landmark },
-  { name: 'Adventure & Hiking', bg: 'bg-amber-100/90 border-amber-200 text-amber-900', icon: Mountain },
-  { name: 'Luxury & Wellness', bg: 'bg-rose-100/90 border-rose-200 text-rose-900', icon: Sparkles },
+  { name: 'Beach & Wildlife', bg: 'bg-blue-100/90 border-blue-200 text-blue-900', icon: 'Palmtree' },
+  { name: 'Cultural Tours', bg: 'bg-emerald-100/90 border-emerald-200 text-emerald-900', icon: 'Landmark' },
+  { name: 'Adventure & Hiking', bg: 'bg-amber-100/90 border-amber-200 text-amber-900', icon: 'Mountain' },
+  { name: 'Luxury & Wellness', bg: 'bg-rose-100/90 border-rose-200 text-rose-900', icon: 'Sparkles' },
 ];
 
-const packages = [
-  {
-    days: 14,
-    label: 'Days',
-    title: 'GRAND EUROPE TOUR',
-    icon: Compass,
-    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    days: 10,
-    label: 'Days',
-    title: 'CLASSIC HIGHLIGHTS',
-    icon: Landmark,
-    image: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    days: 7,
-    label: 'Days',
-    title: 'MALDIVES ESCAPE',
-    icon: Palmtree,
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    days: 10,
-    label: 'Days',
-    title: 'AFRICAN SAFARI',
-    icon: ShieldAlert,
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    days: 4,
-    label: 'Days',
-    title: 'QUICK GETAWAY',
-    icon: Mountain,
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop',
-  },
-  {
-    days: 16,
-    label: 'Days',
-    title: 'ULTIMATE JAPAN',
-    icon: Sparkles,
-    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop',
-  },
-];
+export default async function TailoredExperiences() {
+  const tours = await prisma.tourPackage.findMany({
+    orderBy: { createdAt: 'asc' },
+    take: 6
+  });
 
-export default function TailoredExperiences() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-      
-      {/* Section Header */}
-      <div className="text-center space-y-3">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-slate-900 tracking-tight">
-          Tailored Experiences Just for You
-        </h2>
-        <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
-          Explore handpicked tour packages designed to immerse you in the world's most breathtaking cultures, wildlife, and natural wonders.
-        </p>
+    <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="max-w-2xl space-y-4">
+          <span className="text-sm font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100">
+            Tailored Experiences
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight font-serif">
+            Journeys Designed For <span className="text-emerald-600">You</span>
+          </h2>
+        </div>
+        <Link 
+          href="/packages"
+          className="inline-flex items-center gap-2 text-emerald-700 font-semibold hover:text-emerald-800 transition-colors bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-full shrink-0 group border border-emerald-100"
+        >
+          View all itineraries 
+          <LucideIcons.ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
       </div>
 
-      {/* Pastel Category Filter Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12">
         {categories.map((cat) => {
-          const Icon = cat.icon;
+          // @ts-ignore
+          const Icon = LucideIcons[cat.icon] || LucideIcons.Map;
           return (
             <button
               key={cat.name}
@@ -89,28 +58,28 @@ export default function TailoredExperiences() {
         })}
       </div>
 
-      {/* Tour Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-        {packages.map((pkg, idx) => {
-          const Icon = pkg.icon;
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        {tours.map((tour) => {
+          // @ts-ignore
+          const Icon = LucideIcons[tour.icon] || LucideIcons.Map;
+          
           return (
             <div
-              key={idx}
+              key={tour.id}
               className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
             >
-              {/* Card Header Info */}
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-4xl sm:text-5xl font-bold text-slate-900 font-sans tracking-tight">
-                      {pkg.days}
+                      {tour.days}
                     </span>
                     <span className="text-sm font-bold text-slate-600 uppercase">
-                      {pkg.label}
+                      Days
                     </span>
                   </div>
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mt-1">
-                    {pkg.title}
+                    {tour.title}
                   </span>
                 </div>
                 <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-purple-950 group-hover:border-transparent group-hover:text-white transition-all duration-300">
@@ -118,11 +87,10 @@ export default function TailoredExperiences() {
                 </div>
               </div>
 
-              {/* Bottom Thumbnail Image */}
-              <div className="relative h-28 w-full rounded-2xl overflow-hidden mt-4">
+              <div className="relative h-48 w-full rounded-2xl overflow-hidden mt-4">
                 <Image
-                  src={pkg.image}
-                  alt={pkg.title}
+                  src={tour.image}
+                  alt={tour.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -131,7 +99,6 @@ export default function TailoredExperiences() {
           );
         })}
       </div>
-
     </section>
   );
 }

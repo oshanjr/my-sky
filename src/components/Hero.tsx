@@ -1,46 +1,43 @@
-'use client';
+import { PrismaClient } from '@prisma/client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+const prisma = new PrismaClient();
 
-const heroImages = [
-  "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2000&auto=format&fit=crop", // Japan
-  "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2000&auto=format&fit=crop", // Maldives
-  "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=2000&auto=format&fit=crop"  // Paris
-];
+export default async function Hero() {
+  // Fetch from DB
+  const config = await prisma.heroConfig.findFirst();
+  
+  const heroImages = config?.images?.length ? config.images : [
+    "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=2000&auto=format&fit=crop"
+  ];
 
-export default function Hero() {
-  const [currentIdx, setCurrentIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
-    return () => clearInterval(timer);
-  }, []);
-
+  const title = config?.title || "The World";
+  const subtitle = config?.subtitle || "Embark on a Journey That's Uniquely Yours";
+  const description = config?.description || "Curated travel itineraries, authentic cultural experiences, and tailor-made holidays across the globe.";
+  // Config loaded
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
-      {/* Background Image Slider */}
+      {/* Background Image Slider (CSS animation for server component) */}
       <div className="absolute inset-0 z-0 bg-black">
         {heroImages.map((src, idx) => (
           <div
             key={src}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              idx === currentIdx ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
+            className="absolute inset-0 animate-hero-slider opacity-0"
+            style={{ 
+              animationDelay: `${idx * 5}s`, 
+              animationDuration: `${heroImages.length * 5}s` 
+            }}
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={src}
-              alt={`Global Destination Hero Image ${idx + 1}`}
-              fill
-              className="object-cover object-center"
-              priority={idx === 0} // Only preload the first image
+              alt={`Hero Image ${idx + 1}`}
+              className="w-full h-full object-cover object-center"
             />
           </div>
         ))}
-        {/* Dark vignette gradient overlay - made slightly darker as requested */}
+        {/* Dark vignette gradient overlay */}
         <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
@@ -56,32 +53,20 @@ export default function Hero() {
 
         {/* Huge Serif Title */}
         <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white font-serif drop-shadow-md">
-          The World
+          {title}
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl sm:text-2xl md:text-3xl text-white/95 font-serif italic tracking-wide max-w-3xl mx-auto drop-shadow">
-          Embark on a Journey That's Uniquely Yours
+          {subtitle}
         </p>
 
         <p className="text-sm sm:text-base text-white/80 max-w-xl mx-auto font-sans leading-relaxed">
-          Curated travel itineraries, authentic cultural experiences, and tailor-made holidays across the globe.
+          {description}
         </p>
       </div>
 
-      {/* Slider indicators */}
-      <div className="absolute bottom-8 z-30 flex items-center justify-center gap-3">
-        {heroImages.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIdx(idx)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              idx === currentIdx ? 'w-8 bg-white' : 'bg-white/50 hover:bg-white/80'
-            }`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
+      {/* Slider indicators are removed since it's now purely CSS animated */}
 
     </section>
   );

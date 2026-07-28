@@ -21,5 +21,48 @@ model Inquiry {
   adults      Int      @default(2)
   children    Int      @default(0)
   details     String?
+  status      String   @default("Pending") // Pending, Contacted, Resolved
   createdAt   DateTime @default(now())
+}
+
+model HeroConfig {
+  id          String   @id @default(cuid())
+  title       String   @default("The World")
+  subtitle    String   @default("Embark on a Journey That's Uniquely Yours")
+  description String   @default("Curated travel itineraries, authentic cultural experiences, and tailor-made holidays across the globe.")
+  images      String[] // Array of image URLs
+  updatedAt   DateTime @updatedAt
+}
+
+model TourPackage {
+  id        String   @id @default(cuid())
+  days      Int
+  title     String
+  icon      String   // Name of lucide-react icon (e.g. 'Compass', 'Palmtree')
+  image     String   // URL
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Destination {
+  id        String   @id @default(cuid())
+  name      String
+  location  String
+  image     String   // URL
+  rating    Float    @default(5.0)
+  price     String   @default("Custom")
+  tag       String   @default("Luxury")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  excerpt   String
+  category  String
+  author    String
+  image     String   // URL
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

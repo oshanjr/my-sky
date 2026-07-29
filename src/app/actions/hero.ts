@@ -41,9 +41,7 @@ export async function updateHeroConfig(formData: FormData) {
     }
 
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    console.error(error);
-    return { success: false, error: 'Failed to update hero configuration.' };
+    console.error('Failed to update hero configuration:', error);
   }
 }

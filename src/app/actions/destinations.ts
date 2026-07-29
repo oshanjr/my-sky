@@ -30,9 +30,8 @@ export async function addDestination(formData: FormData) {
     revalidatePath('/admin/destinations');
     revalidatePath('/destinations');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to add destination.' };
+    console.error('Failed to process destination:', error);
   }
 }
 
@@ -44,8 +43,7 @@ export async function deleteDestination(formData: FormData) {
     revalidatePath('/admin/destinations');
     revalidatePath('/destinations');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to delete destination.' };
+    console.error('Failed to process destination:', error);
   }
 }

@@ -29,9 +29,8 @@ export async function addPackage(formData: FormData) {
     revalidatePath('/admin/packages');
     revalidatePath('/packages');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to add package.' };
+    console.error('Failed to add package:', error);
   }
 }
 
@@ -43,8 +42,7 @@ export async function deletePackage(formData: FormData) {
     revalidatePath('/admin/packages');
     revalidatePath('/packages');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to delete package.' };
+    console.error('Failed to delete package:', error);
   }
 }

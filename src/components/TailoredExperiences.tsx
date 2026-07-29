@@ -66,34 +66,48 @@ export default async function TailoredExperiences() {
           return (
             <div
               key={tour.id}
-              className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 border border-slate-100 cursor-pointer flex flex-col"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl sm:text-5xl font-bold text-slate-900 font-sans tracking-tight">
-                      {tour.days}
-                    </span>
-                    <span className="text-sm font-bold text-slate-600 uppercase">
-                      Days
-                    </span>
-                  </div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mt-1">
-                    {tour.title}
-                  </span>
-                </div>
-                <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-700 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-purple-950 group-hover:border-transparent group-hover:text-white transition-all duration-300">
-                  <Icon size={16} />
-                </div>
-              </div>
-
-              <div className="relative h-48 w-full rounded-2xl overflow-hidden mt-4">
+              {/* Top Image Area */}
+              <div className="relative h-56 sm:h-64 w-full overflow-hidden">
                 <Image
                   src={tour.image}
                   alt={tour.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
+                {/* Subtle Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-black/10 group-hover:opacity-80 transition-opacity duration-500" />
+                
+                {/* Floating Badge (Days) */}
+                <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl flex items-baseline gap-1.5 shadow-lg border border-white/20 transform group-hover:scale-105 transition-transform duration-300">
+                  <span className="text-xl font-extrabold text-slate-900 font-sans leading-none">{tour.days}</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">Days</span>
+                </div>
+
+                {/* Floating Icon */}
+                <div className="absolute top-5 right-5 w-10 h-10 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center text-emerald-600 shadow-lg border border-white/20 transform group-hover:rotate-12 transition-transform duration-300">
+                  <Icon size={18} strokeWidth={2.5} />
+                </div>
+              </div>
+
+              {/* Content Area */}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white relative z-10">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif mb-2 group-hover:text-emerald-700 transition-colors">
+                    {tour.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
+                    Immerse yourself in a carefully crafted journey tailored for unforgettable moments and discoveries.
+                  </p>
+                </div>
+                
+                <div className="mt-8 flex items-center justify-between text-sm font-semibold border-t border-slate-100 pt-5">
+                  <span className="text-emerald-600 group-hover:text-emerald-700 transition-colors uppercase tracking-wider text-[11px] sm:text-xs">Explore Itinerary</span>
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                    <LucideIcons.ArrowRight size={14} className="transform group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
               </div>
             </div>
           );

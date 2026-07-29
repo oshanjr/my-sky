@@ -29,9 +29,8 @@ export async function addBlogPost(formData: FormData) {
     revalidatePath('/admin/blog');
     revalidatePath('/blog');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to add blog post.' };
+    console.error('Failed to add blog post:', error);
   }
 }
 
@@ -43,8 +42,7 @@ export async function deleteBlogPost(formData: FormData) {
     revalidatePath('/admin/blog');
     revalidatePath('/blog');
     revalidatePath('/');
-    return { success: true };
   } catch (error) {
-    return { success: false, error: 'Failed to delete blog post.' };
+    console.error('Failed to delete blog post:', error);
   }
 }

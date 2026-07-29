@@ -63,31 +63,33 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="white-card p-8 rounded-3xl group cursor-pointer relative overflow-hidden"
+              className="bg-white p-8 rounded-[32px] border border-slate-100 group cursor-pointer relative overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.2)] hover:border-brand-cyan/30 transition-all duration-500 hover:-translate-y-2"
             >
               {/* Subtle gradient hover hint */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br from-brand-cyan to-brand-cyan-light shadow-md text-white group-hover:scale-110 transition-transform duration-300">
-                  <service.icon size={24} />
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br from-brand-cyan to-brand-cyan-light shadow-[0_8px_20px_-6px_rgba(14,165,233,0.5)] text-white group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 ease-out">
+                  <service.icon size={28} strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-cyan transition-colors">
+                <h3 className="text-2xl font-bold text-brand-navy mb-4 group-hover:text-brand-cyan transition-colors duration-300 font-serif">
                   {service.title}
                 </h3>
                 
-                <p className="text-text-secondary text-sm leading-relaxed mb-6">
+                <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">
                   {service.description}
                 </p>
 
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-brand-cyan group/link"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                </Link>
+                <div className="mt-auto">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-brand-cyan group/link py-2 px-4 rounded-full bg-brand-cyan/5 hover:bg-brand-cyan/10 transition-colors duration-300"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

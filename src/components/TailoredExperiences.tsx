@@ -66,35 +66,35 @@ export default async function TailoredExperiences() {
           return (
             <div
               key={tour.id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 border border-slate-100 cursor-pointer flex flex-col"
+              className="group relative bg-white rounded-[32px] overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-2 border border-slate-100 cursor-pointer flex flex-col"
             >
               {/* Top Image Area */}
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden">
+              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
                 <Image
                   src={tour.image}
                   alt={tour.title}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 />
                 {/* Subtle Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-black/10 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
                 
                 {/* Floating Badge (Days) */}
-                <div className="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl flex items-baseline gap-1.5 shadow-lg border border-white/20 transform group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-xl font-extrabold text-slate-900 font-sans leading-none">{tour.days}</span>
+                <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl flex items-baseline gap-1.5 shadow-[0_8px_16px_rgba(0,0,0,0.1)] border border-white/50 transform group-hover:scale-105 transition-transform duration-300">
+                  <span className="text-2xl font-black text-slate-900 font-sans leading-none">{tour.days}</span>
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">Days</span>
                 </div>
 
                 {/* Floating Icon */}
-                <div className="absolute top-5 right-5 w-10 h-10 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center text-emerald-600 shadow-lg border border-white/20 transform group-hover:rotate-12 transition-transform duration-300">
-                  <Icon size={18} strokeWidth={2.5} />
+                <div className="absolute top-5 right-5 w-12 h-12 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-emerald-600 shadow-[0_8px_16px_rgba(0,0,0,0.1)] border border-white/50 transform group-hover:rotate-12 transition-transform duration-300">
+                  <Icon size={20} strokeWidth={2.5} />
                 </div>
               </div>
 
               {/* Content Area */}
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white relative z-10">
+              <div className="p-7 flex-1 flex flex-col justify-between bg-white relative z-10">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-serif mb-2 group-hover:text-emerald-700 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 font-serif mb-3 group-hover:text-emerald-600 transition-colors duration-300">
                     {tour.title}
                   </h3>
                   <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
@@ -102,10 +102,10 @@ export default async function TailoredExperiences() {
                   </p>
                 </div>
                 
-                <div className="mt-8 flex items-center justify-between text-sm font-semibold border-t border-slate-100 pt-5">
-                  <span className="text-emerald-600 group-hover:text-emerald-700 transition-colors uppercase tracking-wider text-[11px] sm:text-xs">Explore Itinerary</span>
-                  <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
-                    <LucideIcons.ArrowRight size={14} className="transform group-hover:translate-x-0.5 transition-transform" />
+                <div className="mt-8 flex items-center justify-between text-sm font-semibold border-t border-slate-100/80 pt-5">
+                  <span className="text-emerald-600 group-hover:text-emerald-700 transition-colors uppercase tracking-widest text-[11px] font-bold">Explore Itinerary</span>
+                  <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                    <LucideIcons.ArrowRight size={16} className="transform group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </div>

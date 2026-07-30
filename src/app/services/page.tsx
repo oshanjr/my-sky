@@ -1,6 +1,13 @@
 import Navbar from '../../components/Navbar';
 import Services from '../../components/Services';
 import Footer from '../../components/Footer';
+import PageImageSlider from '../../components/PageImageSlider';
+
+const serviceImages = [
+  'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1600&auto=format&fit=crop', // Plane
+  'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1600&auto=format&fit=crop', // Bus/Transport
+  'https://images.unsplash.com/photo-1551882547-ff40c0b1398c?q=80&w=1600&auto=format&fit=crop', // Visa/Passport
+];
 
 export default function ServicesPage() {
   return (
@@ -19,6 +26,10 @@ export default function ServicesPage() {
             From flight bookings to visa assistance and luxury accommodation, we manage every detail of your journey.
           </p>
         </section>
+
+        <div className="mb-16">
+          <PageImageSlider images={serviceImages} />
+        </div>
 
         <Services />
       </main>

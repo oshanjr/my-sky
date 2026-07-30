@@ -1,6 +1,13 @@
 import Navbar from '../../components/Navbar';
 import TailoredExperiences from '../../components/TailoredExperiences';
 import Footer from '../../components/Footer';
+import PageImageSlider from '../../components/PageImageSlider';
+
+const packageImages = [
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop', // Landscape
+  'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1600&auto=format&fit=crop', // Boat
+  'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop', // Van
+];
 
 export default function PackagesPage() {
   return (
@@ -19,6 +26,10 @@ export default function PackagesPage() {
             Choose from custom-crafted journeys ranging from 4-day getaways to 16-day grand global explorations.
           </p>
         </section>
+
+        <div className="mb-16">
+          <PageImageSlider images={packageImages} />
+        </div>
 
         <TailoredExperiences />
       </main>

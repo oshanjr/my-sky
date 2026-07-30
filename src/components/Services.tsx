@@ -63,7 +63,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white p-8 rounded-[32px] border border-slate-100 group cursor-pointer relative overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.2)] hover:border-brand-cyan/30 transition-all duration-500 hover:-translate-y-2"
+              className="bg-white p-8 rounded-[32px] border border-slate-100 group cursor-pointer relative overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.2)] hover:border-brand-cyan/30 transition-all duration-500 hover:-translate-y-2"
             >
               {/* Subtle gradient hover hint */}
               <div className="absolute inset-0 bg-gradient-to-br from-brand-cyan/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

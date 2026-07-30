@@ -1,6 +1,13 @@
 import Navbar from '../../components/Navbar';
 import FeaturedDestinations from '../../components/FeaturedDestinations';
 import Footer from '../../components/Footer';
+import PageImageSlider from '../../components/PageImageSlider';
+
+const destinationImages = [
+  'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1600&auto=format&fit=crop', // Paris
+  'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1600&auto=format&fit=crop', // Japan
+  'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1600&auto=format&fit=crop', // Maldives
+];
 
 export default function DestinationsPage() {
   return (
@@ -19,6 +26,10 @@ export default function DestinationsPage() {
             Discover iconic landmarks, pristine beaches, vibrant cityscapes, and ancient UNESCO heritage sites across the globe.
           </p>
         </section>
+
+        <div className="mb-16">
+          <PageImageSlider images={destinationImages} />
+        </div>
 
         <FeaturedDestinations />
       </main>

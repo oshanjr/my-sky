@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, MapPin, Phone } from 'lucide-react';
 import { submitInquiry } from '../app/actions/inquiry';
 
 export default function Contact() {
@@ -58,10 +58,68 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-12 px-4 sm:px-6 relative overflow-hidden">
-      <div className="max-w-3xl mx-auto relative z-10">
-        
-        {/* Main Form Card */}
-        <div className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-slate-200">
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          
+          {/* Contact Info & Map */}
+          <div className="lg:col-span-5 space-y-8 h-full">
+            <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 h-full flex flex-col">
+              <div className="mb-8 space-y-4">
+                <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-emerald-900 bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-200 inline-block">
+                  Sri Lanka Office
+                </span>
+                <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
+                  Get in Touch
+                </h2>
+              </div>
+
+              <div className="space-y-6 flex-grow">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">Address</h3>
+                    <p className="text-slate-600 mt-1">
+                      Negombo City Center, St Joshep St<br />
+                      NEGOMBO, SRI LANKA
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900">Phone</h3>
+                    <p className="text-slate-600 mt-1">
+                      +94 71 225 8000<br />
+                      +94 71 230 8000
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map */}
+              <div className="mt-8 rounded-2xl overflow-hidden h-64 border border-slate-200 relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.825624795412!2d79.83984507577533!3d7.20247659280145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2ee81f6920979%3A0x7d6a50616110f2d!2sNegombo%20City%20Center!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Negombo City Center Location"
+                  className="absolute inset-0"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Main Form Card */}
+          <div className="lg:col-span-7 bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-slate-200">
           
           <div className="mb-10 space-y-4">
             <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block">
@@ -241,6 +299,8 @@ export default function Contact() {
             </div>
 
           </form>
+        </div>
+          </div>
         </div>
       </div>
     </section>

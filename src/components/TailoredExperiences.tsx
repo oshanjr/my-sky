@@ -64,8 +64,9 @@ export default async function TailoredExperiences() {
           const Icon = LucideIcons[tour.icon] || LucideIcons.Map;
           
           return (
-            <div
+            <Link
               key={tour.id}
+              href={`/packages/${tour.id}`}
               className="group relative bg-white rounded-[32px] overflow-hidden shadow-md hover:shadow-xl hover:border-sky-500/30 transition-all duration-500 hover:-translate-y-2 border border-slate-200 cursor-pointer flex flex-col"
             >
               {/* Top Image Area */}
@@ -116,7 +117,7 @@ export default async function TailoredExperiences() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -33,7 +33,8 @@ export default async function FeaturedDestinations() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinations.map((dest, index) => (
-            <div
+            <Link
+              href={`/destinations/${dest.id}`}
               key={dest.id}
               className="bg-white rounded-[32px] overflow-hidden group cursor-pointer flex flex-col border border-slate-100 hover:border-brand-cyan/20 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] transition-all duration-500 hover:-translate-y-2"
             >
@@ -72,12 +73,12 @@ export default async function FeaturedDestinations() {
                   <div className="text-right flex flex-col items-end">
                     <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400 mb-0.5">Starts from</span>
                     <span className="text-2xl font-bold text-brand-navy group-hover:text-brand-cyan transition-colors duration-300">
-                      ${dest.price}
+                      {dest.price}
                     </span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

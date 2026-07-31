@@ -33,7 +33,7 @@ export default async function TravelStories() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {posts.map((post) => (
-          <Link key={post.id} href={`/blog`} className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
+          <Link key={post.id} href={`/blog/${post.id}`} className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100">
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Image
                 src={post.image}

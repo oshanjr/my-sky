@@ -47,7 +47,7 @@ export default function AgencyOverview() {
       </div>
 
       {/* Mission Block */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-gray-50/80 p-8 sm:p-12 rounded-3xl border border-gray-100">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-gray-50/80 p-8 sm:p-12 rounded-3xl border border-gray-200 shadow-sm">
         
         {/* Mission Text */}
         <div className="lg:col-span-6 space-y-6">
@@ -58,13 +58,6 @@ export default function AgencyOverview() {
           <p className="text-gray-600 leading-relaxed text-base sm:text-lg font-sans">
             Our mission is to connect travelers with breathtaking global destinations—from vibrant cityscapes and historical wonders to pristine exotic beaches—offering sustainable, personalized, and world-class outbound travel experiences.
           </p>
-
-          <div>
-            <a href="#contact" className="btn-black-pill">
-              Our Values
-              <ArrowRight size={16} />
-            </a>
-          </div>
         </div>
 
         {/* Mission Double Image Collage */}
@@ -114,7 +107,7 @@ export default function AgencyOverview() {
 
           {/* Dubai Branch */}
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-2">
+            <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-2">
               <Award size={24} />
             </div>
             <h3 className="text-xl font-bold font-sans text-gray-900">Dubai Branch</h3>
@@ -122,7 +115,7 @@ export default function AgencyOverview() {
               Business Bay, Dubai<br />
               UNITED ARAB EMIRATES
             </p>
-            <div className="text-emerald-600 font-semibold pt-2 space-y-1">
+            <div className="text-sky-600 font-semibold pt-2 space-y-1">
               <p>+971 4 000 0000</p>
               <p>+971 50 000 0000</p>
             </div>

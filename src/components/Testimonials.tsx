@@ -39,7 +39,7 @@ export default function Testimonials() {
 
           <div className="space-y-4 pt-8">
             {/* Pastel Green Quote Glass Card */}
-            <div className="bg-emerald-50/90 border border-emerald-100 p-5 rounded-3xl backdrop-blur-md shadow-sm space-y-2">
+            <div className="bg-sky-50/90 border border-sky-100 p-5 rounded-3xl backdrop-blur-md shadow-sm space-y-2">
               <div className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={14} fill="currentColor" />

@@ -21,7 +21,7 @@ const blogPosts = [
     date: 'Sep 28, 2023',
     author: 'Sarah',
     category: 'Food & Culture',
-    image: 'https://images.unsplash.com/photo-1544644181-1484b3f8c8b4?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const blogPosts = [
     date: 'Sep 15, 2023',
     author: 'David',
     category: 'Wildlife',
-    image: 'https://images.unsplash.com/photo-1566296531481-5e6a8302f385?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop'
   },
   {
     id: 4,

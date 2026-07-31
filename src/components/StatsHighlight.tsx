@@ -15,7 +15,7 @@ export default function StatsHighlight() {
 
         <div className="relative h-[350px] sm:h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl">
           <Image
-            src="https://images.unsplash.com/photo-1522083111811-37d45a7bd786?q=80&w=1800&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1800&auto=format&fit=crop"
             alt="Majestic Mountain Range"
             fill
             className="object-cover"

@@ -35,7 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             Packages
           </Link>
           <Link href="/admin/destinations" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm font-medium">
-            <Palmtree size={18} className="text-emerald-400" />
+            <Palmtree size={18} className="text-sky-400" />
             Destinations
           </Link>
           <Link href="/admin/blog" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm font-medium">

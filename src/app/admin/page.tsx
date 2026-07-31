@@ -16,7 +16,7 @@ export default async function AdminDashboard() {
   const stats = [
     { title: 'New Inquiries', value: inquiriesCount, icon: MessageSquare, color: 'text-sky-500', bg: 'bg-sky-100', link: '/admin/inquiries' },
     { title: 'Tour Packages', value: packagesCount, icon: Map, color: 'text-amber-500', bg: 'bg-amber-100', link: '/admin/packages' },
-    { title: 'Destinations', value: destinationsCount, icon: Palmtree, color: 'text-emerald-500', bg: 'bg-emerald-100', link: '/admin/destinations' },
+    { title: 'Destinations', value: destinationsCount, icon: Palmtree, color: 'text-sky-500', bg: 'bg-sky-100', link: '/admin/destinations' },
     { title: 'Blog Posts', value: blogCount, icon: FileText, color: 'text-rose-500', bg: 'bg-rose-100', link: '/admin/blog' }
   ];
 

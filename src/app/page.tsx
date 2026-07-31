@@ -2,7 +2,6 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import TailoredExperiences from '../components/TailoredExperiences';
 import LandscapeBanner from '../components/LandscapeBanner';
-import AgencyOverview from '../components/AgencyOverview';
 import StatsHighlight from '../components/StatsHighlight';
 import TravelStories from '../components/TravelStories';
 import Testimonials from '../components/Testimonials';
@@ -16,7 +15,6 @@ export default function Home() {
         <Hero />
         <TailoredExperiences />
         <LandscapeBanner />
-        <AgencyOverview />
         <StatsHighlight />
         <TravelStories />
         <Testimonials />

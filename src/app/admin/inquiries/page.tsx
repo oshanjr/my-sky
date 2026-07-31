@@ -44,7 +44,7 @@ export default async function InquiriesPage() {
                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                   inquiry.status === 'Pending' ? 'bg-amber-100 text-amber-700' :
                   inquiry.status === 'Contacted' ? 'bg-sky-100 text-sky-700' :
-                  'bg-emerald-100 text-emerald-700'
+                  'bg-sky-100 text-sky-700'
                 }`}>
                   {inquiry.status}
                 </span>

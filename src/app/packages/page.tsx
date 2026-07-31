@@ -6,7 +6,7 @@ import PageImageSlider from '../../components/PageImageSlider';
 const packageImages = [
   'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop', // Landscape
   'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1600&auto=format&fit=crop', // Boat
-  'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop', // Van
+  'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1600&auto=format&fit=crop', // Van
 ];
 
 export default function PackagesPage() {
@@ -16,7 +16,7 @@ export default function PackagesPage() {
       <main className="pt-24">
         {/* Page Header */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center space-y-4">
-          <span className="text-xs uppercase font-bold tracking-widest text-emerald-900 bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-200 inline-block">
+          <span className="text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block">
             Curated Itineraries
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-slate-900 tracking-tight">

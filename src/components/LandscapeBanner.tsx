@@ -11,7 +11,7 @@ export default function LandscapeBanner() {
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-gray-900 tracking-tight leading-tight">
           A Journey Through Breathtaking Landscapes,
         </h2>
-        <p className="text-2xl sm:text-3xl font-serif text-emerald-800 italic mt-2">
+        <p className="text-2xl sm:text-3xl font-serif text-sky-800 italic mt-2">
           Iconic Landmarks, and Unforgettable Experiences
         </p>
       </div>

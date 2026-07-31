@@ -34,8 +34,8 @@ export default function Contact() {
     return (
       <section id="contact" className="py-12 px-4 sm:px-6 relative overflow-hidden">
         <div className="max-w-3xl mx-auto relative z-10">
-          <div className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-emerald-200 text-center space-y-6">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+          <div className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-sky-200 text-center space-y-6">
+            <div className="w-16 h-16 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto">
               <CheckCircle size={32} />
             </div>
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight font-serif">
@@ -65,7 +65,7 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-8 h-full">
             <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 h-full flex flex-col">
               <div className="mb-8 space-y-4">
-                <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-emerald-900 bg-emerald-100 px-4 py-1.5 rounded-full border border-emerald-200 inline-block">
+                <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block">
                   Sri Lanka Office
                 </span>
                 <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
@@ -88,7 +88,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="mt-1 w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <div className="mt-1 w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
                     <Phone size={20} />
                   </div>
                   <div>

@@ -4,64 +4,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 
-const blogPosts = [
-  {
-    id: 1,
-    title: '10 Hidden Gems in Japan You Must Visit',
-    excerpt: 'Beyond the popular tourist trails lie breathtaking untouched landscapes, serene mountain villages, and ancient shrines waiting to be explored.',
-    date: 'Oct 12, 2023',
-    author: 'Oshan',
-    category: 'Travel Guide',
-    image: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 2,
-    title: 'A Culinary Journey Through Tokyo',
-    excerpt: 'Discover the rich, umami, and vibrant street food culture of Japan\'s capital city. From Ramen to fresh sushi.',
-    date: 'Sep 28, 2023',
-    author: 'Sarah',
-    category: 'Food & Culture',
-    image: 'https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 3,
-    title: 'The Ultimate Guide to African Safaris',
-    excerpt: 'Everything you need to know about spotting lions in the Serengeti and witnessing the great migration.',
-    date: 'Sep 15, 2023',
-    author: 'David',
-    category: 'Wildlife',
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 4,
-    title: 'Best Time to Visit Europe: Weather Guide',
-    excerpt: 'Planning your trip? Learn about the two monsoon seasons and how to chase the sun across the island all year round.',
-    date: 'Aug 30, 2023',
-    author: 'Oshan',
-    category: 'Tips',
-    image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 5,
-    title: 'Luxury Resorts of the Amalfi Coast',
-    excerpt: 'A curated list of the most breathtaking luxury boutique hotels and eco-resorts nestled along the southern beaches.',
-    date: 'Aug 14, 2023',
-    author: 'Elena',
-    category: 'Luxury',
-    image: 'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?q=80&w=800&auto=format&fit=crop'
-  },
-  {
-    id: 6,
-    title: 'Hiking the Swiss Alps: What to Expect',
-    excerpt: 'A detailed breakdown of the sacred pilgrimage climb, the best routes, and how to prepare for the spectacular sunrise view.',
-    date: 'Jul 22, 2023',
-    author: 'Mark',
-    category: 'Adventure',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop'
-  }
-];
+import { PrismaClient } from '@prisma/client';
 
-export default function BlogPage() {
+const prisma = new PrismaClient();
+
+export default async function BlogPage() {
+  const blogPosts = await prisma.blogPost.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+
+  // Helper to format date
+  const formatDate = (dateString: Date) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
       <Navbar />
@@ -81,8 +41,9 @@ export default function BlogPage() {
         </section>
 
         {/* Featured Post (Hero style) */}
-        <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
-          <Link href={`/blog/${blogPosts[0].id}`} className="group relative block w-full h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-sm">
+        {blogPosts.length > 0 && (
+          <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
+            <Link href={`/blog/${blogPosts[0].id}`} className="group relative block w-full h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-sm">
             <Image
               src={blogPosts[0].image}
               alt={blogPosts[0].title}
@@ -104,7 +65,7 @@ export default function BlogPage() {
               <div className="flex items-center gap-4 text-xs font-semibold text-slate-300 pt-2">
                 <div className="flex items-center gap-1.5">
                   <Calendar size={14} />
-                  {blogPosts[0].date}
+                  {blogPosts.length > 0 && formatDate(blogPosts[0].createdAt)}
                 </div>
                 <div className="flex items-center gap-1.5">
                   <User size={14} />
@@ -112,8 +73,9 @@ export default function BlogPage() {
                 </div>
               </div>
             </div>
-          </Link>
-        </section>
+            </Link>
+          </section>
+        )}
 
         {/* Blog Grid */}
         <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -138,7 +100,7 @@ export default function BlogPage() {
                     <div className="flex items-center gap-4 text-xs font-semibold text-slate-400">
                       <div className="flex items-center gap-1.5">
                         <Calendar size={14} />
-                        {post.date}
+                        {formatDate(post.createdAt)}
                       </div>
                     </div>
                     <Link href={`/blog/${post.id}`}>

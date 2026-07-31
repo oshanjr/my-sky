@@ -38,6 +38,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Palmtree size={18} className="text-sky-400" />
             Destinations
           </Link>
+          <Link href="/admin/branches" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm font-medium">
+            <Map size={18} className="text-green-400" />
+            Branches & Locations
+          </Link>
           <Link href="/admin/blog" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm font-medium">
             <FileText size={18} className="text-rose-400" />
             Blog Posts

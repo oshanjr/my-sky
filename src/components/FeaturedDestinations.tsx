@@ -36,43 +36,48 @@ export default async function FeaturedDestinations() {
             <Link
               href={`/destinations/${dest.id}`}
               key={dest.id}
-              className="bg-white rounded-[32px] overflow-hidden group cursor-pointer flex flex-col border border-slate-100 hover:border-brand-cyan/20 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] transition-all duration-500 hover:-translate-y-2"
+              className="group relative h-[420px] rounded-[32px] overflow-hidden cursor-pointer isolate border border-slate-200/50 hover:border-sky-500/30 hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.25)] transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <Image
-                  src={dest.image}
-                  alt={dest.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                />
-                <div className="absolute top-5 left-5 z-20 backdrop-blur-md bg-white/75 border border-white/40 px-4 py-1.5 rounded-full text-xs font-bold text-brand-navy shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              {/* Background Image */}
+              <Image
+                src={dest.image}
+                alt={dest.name}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out z-0"
+              />
+              
+              {/* Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/40 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
+              
+              {/* Top Elements */}
+              <div className="absolute top-6 left-6 z-20 flex justify-between items-start w-[calc(100%-48px)]">
+                <div className="bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-lg">
                   {dest.tag}
                 </div>
-                {/* Arrow icon appears on hover */}
-                <div className="absolute top-5 right-5 z-20 bg-white/90 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 ease-out shadow-lg">
-                  <ArrowRight size={18} className="text-brand-navy" />
+                <div className="bg-white/20 backdrop-blur-md border border-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
+                  <ArrowRight size={18} />
                 </div>
               </div>
 
-              <div className="p-7 flex flex-col flex-1 bg-white relative z-20">
-                <div className="flex items-center gap-1.5 text-slate-500 text-sm font-medium mb-3">
-                  <MapPin size={16} className="text-brand-cyan" />
+              {/* Bottom Content Area */}
+              <div className="absolute bottom-0 left-0 w-full p-6 sm:p-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                <div className="flex items-center gap-1.5 text-sky-400 text-sm font-bold tracking-wide mb-2">
+                  <MapPin size={16} />
                   {dest.location}
                 </div>
                 
-                <h3 className="text-2xl font-bold text-brand-navy mb-6 group-hover:text-brand-cyan transition-colors duration-300 font-serif">
+                <h3 className="text-3xl font-extrabold text-white mb-5 font-serif leading-tight drop-shadow-md group-hover:text-sky-100 transition-colors">
                   {dest.name}
                 </h3>
                 
-                <div className="mt-auto flex items-center justify-between pt-5 border-t border-slate-100/80">
-                  <div className="flex items-center gap-1.5 bg-amber-50/80 border border-amber-100/50 px-3 py-1.5 rounded-xl">
+                <div className="flex items-center justify-between pt-5 border-t border-white/20">
+                  <div className="flex items-center gap-1.5 bg-amber-400/20 backdrop-blur-md border border-amber-400/30 px-3 py-1.5 rounded-xl">
                     <Star size={16} className="fill-amber-400 text-amber-400" />
-                    <span className="text-sm font-bold text-amber-700">{dest.rating}</span>
+                    <span className="text-sm font-bold text-amber-50">{dest.rating}</span>
                   </div>
                   <div className="text-right flex flex-col items-end">
-                    <span className="text-[11px] uppercase tracking-wider font-semibold text-slate-400 mb-0.5">Starts from</span>
-                    <span className="text-2xl font-bold text-brand-navy group-hover:text-brand-cyan transition-colors duration-300">
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-slate-300 mb-0.5">Starts from</span>
+                    <span className="text-2xl font-bold text-white group-hover:text-sky-300 transition-colors duration-300 drop-shadow-md">
                       {dest.price}
                     </span>
                   </div>

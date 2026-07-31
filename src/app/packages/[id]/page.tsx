@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import * as LucideIcons from 'lucide-react';
 import Link from 'next/link';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 const prisma = new PrismaClient();
 
@@ -19,8 +21,10 @@ export default async function PackagePage({ params }: { params: { id: string } }
   const Icon = LucideIcons[pkg.icon] || LucideIcons.Map;
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-24 pb-20">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-slate-50 font-sans">
+      <Navbar />
+      <main className="pt-24 pb-20">
+        {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full bg-slate-900">
         <Image 
           src={pkg.image} 
@@ -43,8 +47,8 @@ export default async function PackagePage({ params }: { params: { id: string } }
       </section>
 
       {/* Content Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
-        <div className="bg-white rounded-[3rem] shadow-2xl p-8 md:p-16 border border-slate-100">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
+        <div className="bg-white rounded-[3rem] shadow-2xl p-8 md:p-12 lg:p-16 border border-slate-100">
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-8">
@@ -105,6 +109,8 @@ export default async function PackagePage({ params }: { params: { id: string } }
 
         </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

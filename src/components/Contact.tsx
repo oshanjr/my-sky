@@ -4,7 +4,9 @@ import { useState, useRef } from 'react';
 import { Send, CheckCircle, MapPin, Phone } from 'lucide-react';
 import { submitInquiry } from '../app/actions/inquiry';
 
-export default function Contact() {
+import { Branch } from '@prisma/client';
+
+export default function Contact({ branches = [] }: { branches?: Branch[] }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -36,7 +38,7 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto relative z-10">
           <div className="bg-white rounded-[2rem] p-8 sm:p-12 shadow-sm border border-sky-200 text-center space-y-6">
             <div className="w-16 h-16 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto">
-              <CheckCircle size={32} />
+               <CheckCircle size={32} />
             </div>
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight font-serif">
               Inquiry Sent Successfully!
@@ -243,59 +245,68 @@ export default function Contact() {
         </div>
 
         {/* Contact Info & Map (Below Form) */}
-        <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-8 items-center justify-between w-full">
-          <div className="flex-1 space-y-6 w-full">
-            <div className="space-y-2">
-              <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block mb-2">
-                Sri Lanka Office
-              </span>
-              <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
-                Visit Us
-              </h2>
-            </div>
+        {branches && branches.length > 0 && (
+          <div className="space-y-6">
+            {branches.map((branch) => (
+              <div key={branch.id} className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-8 items-center justify-between w-full">
+                <div className="flex-1 space-y-6 w-full">
+                  <div className="space-y-2">
+                    <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block mb-2">
+                      {branch.isMain ? 'Headquarters' : 'Branch Office'}
+                    </span>
+                    <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
+                      {branch.name}
+                    </h2>
+                  </div>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
-                  <MapPin size={18} />
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 mt-1">
+                        <MapPin size={18} />
+                      </div>
+                      <div>
+                        <p className="text-slate-600 text-sm whitespace-pre-wrap">
+                          {branch.address}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {(branch.phone1 || branch.phone2) && (
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 mt-1">
+                          <Phone size={18} />
+                        </div>
+                        <div>
+                          <p className="text-slate-600 text-sm">
+                            {branch.phone1 && <>{branch.phone1}<br /></>}
+                            {branch.phone2 && <>{branch.phone2}</>}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-slate-600 text-sm">
-                    Negombo City Center, St Joshep St<br />
-                    NEGOMBO, SRI LANKA
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
-                  <Phone size={18} />
-                </div>
-                <div>
-                  <p className="text-slate-600 text-sm">
-                    +94 71 225 8000<br />
-                    +94 71 230 8000
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Map */}
-          <div className="w-full md:w-1/2 h-48 rounded-2xl overflow-hidden border border-slate-200 relative">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.825624795412!2d79.83984507577533!3d7.20247659280145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2ee81f6920979%3A0x7d6a50616110f2d!2sNegombo%20City%20Center!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Negombo City Center Location"
-              className="absolute inset-0"
-            />
+                {/* Map */}
+                {branch.mapUrl && (
+                  <div className="w-full md:w-1/2 h-48 rounded-2xl overflow-hidden border border-slate-200 relative">
+                    <iframe 
+                      src={branch.mapUrl}
+                      width="100%" 
+                      height="100%" 
+                      style={{ border: 0 }} 
+                      allowFullScreen={false} 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`${branch.name} Location`}
+                      className="absolute inset-0"
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

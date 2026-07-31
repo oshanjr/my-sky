@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import * as LucideIcons from 'lucide-react';
 import Link from 'next/link';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 const prisma = new PrismaClient();
 
@@ -23,8 +25,10 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
   });
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-32 pb-20">
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 font-sans">
+      <Navbar />
+      <main className="pt-32 pb-20">
+        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <header className="text-center mb-12">
@@ -105,6 +109,8 @@ export default async function BlogPostPage({ params }: { params: { id: string } 
         </div>
 
       </article>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

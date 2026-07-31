@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import { ArrowRight, Compass, ShieldCheck, Award } from 'lucide-react';
 
-export default function AgencyOverview() {
+import { Branch } from '@prisma/client';
+
+export default function AgencyOverview({ branches = [] }: { branches?: Branch[] }) {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-24">
       
@@ -25,9 +27,9 @@ export default function AgencyOverview() {
           </p>
 
           <div>
-            <a href="#contact" className="btn-black-pill mt-2">
+            <a href="/contact" className="btn-black-pill mt-2 inline-flex">
               Explore More
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="ml-2" />
             </a>
           </div>
         </div>
@@ -83,46 +85,32 @@ export default function AgencyOverview() {
       </div>
 
       {/* Global Branches Block */}
-      <div className="pt-12 border-t border-gray-200">
-        <h2 className="text-3xl font-bold font-serif text-gray-900 mb-8 text-center">
-          Our Global Offices
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Sri Lanka HQ */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-2">
-              <ShieldCheck size={24} />
-            </div>
-            <h3 className="text-xl font-bold font-sans text-gray-900">Sri Lanka Headquarters</h3>
-            <p className="text-gray-600">
-              Negombo City Center, St Joshep St<br />
-              NEGOMBO, SRI LANKA
-            </p>
-            <div className="text-sky-600 font-semibold pt-2 space-y-1">
-              <p>+94 71 225 8000</p>
-              <p>+94 71 230 8000</p>
-            </div>
+      {branches && branches.length > 0 && (
+        <div className="pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold font-serif text-gray-900 mb-8 text-center">
+            Our Global Offices
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {branches.map(branch => (
+              <div key={branch.id} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-2">
+                  {branch.isMain ? <ShieldCheck size={24} /> : <Award size={24} />}
+                </div>
+                <h3 className="text-xl font-bold font-sans text-gray-900">{branch.name}</h3>
+                <p className="text-gray-600 whitespace-pre-wrap">
+                  {branch.address}
+                </p>
+                <div className="text-sky-600 font-semibold pt-2 space-y-1">
+                  {branch.phone1 && <p>{branch.phone1}</p>}
+                  {branch.phone2 && <p>{branch.phone2}</p>}
+                </div>
+              </div>
+            ))}
+            
           </div>
-
-          {/* Dubai Branch */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-2">
-              <Award size={24} />
-            </div>
-            <h3 className="text-xl font-bold font-sans text-gray-900">Dubai Branch</h3>
-            <p className="text-gray-600">
-              Business Bay, Dubai<br />
-              UNITED ARAB EMIRATES
-            </p>
-            <div className="text-sky-600 font-semibold pt-2 space-y-1">
-              <p>+971 4 000 0000</p>
-              <p>+971 50 000 0000</p>
-            </div>
-          </div>
-          
         </div>
-      </div>
+      )}
 
     </section>
   );

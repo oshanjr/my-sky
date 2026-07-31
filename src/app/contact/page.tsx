@@ -1,8 +1,18 @@
 import Navbar from '../../components/Navbar';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
+import { PrismaClient } from '@prisma/client';
 
-export default function ContactPage() {
+const prisma = new PrismaClient();
+
+export default async function ContactPage() {
+  const branches = await prisma.branch.findMany({
+    orderBy: [
+      { isMain: 'desc' },
+      { createdAt: 'asc' }
+    ]
+  });
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 font-sans">
       <Navbar />
@@ -20,7 +30,7 @@ export default function ContactPage() {
           </p>
         </section>
 
-        <Contact />
+        <Contact branches={branches} />
       </main>
       <Footer />
     </div>

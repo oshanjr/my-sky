@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import * as LucideIcons from 'lucide-react';
 import Link from 'next/link';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 const prisma = new PrismaClient();
 
@@ -16,8 +18,10 @@ export default async function DestinationPage({ params }: { params: { id: string
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-24 pb-20">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-slate-50 font-sans">
+      <Navbar />
+      <main className="pt-24 pb-20">
+        {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full bg-slate-900">
         <Image 
           src={destination.image} 
@@ -111,6 +115,8 @@ export default async function DestinationPage({ params }: { params: { id: string
 
         </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

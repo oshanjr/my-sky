@@ -17,7 +17,7 @@ export default function Footer() {
           
           {/* Col 1: Brand Info */}
           <div className="md:col-span-12 lg:col-span-4 space-y-8 pr-4">
-            <Link href="/" className="flex items-center group relative h-12 w-48 mb-2">
+            <Link href="/" className="flex items-center group relative h-16 w-64 mb-2">
               <Image 
                 src="/logo.png" 
                 alt="My Sky Travels Logo" 

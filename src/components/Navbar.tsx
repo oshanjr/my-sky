@@ -35,7 +35,7 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center group relative h-10 w-40">
+        <Link href="/" className="flex items-center group relative h-14 w-52">
           <Image 
             src="/logo.png" 
             alt="My Sky Travels Logo" 

@@ -39,6 +39,16 @@ export default function AdminLoginPage() {
           )}
 
           <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-700">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all"
+            />
+          </div>
+
+          <div className="space-y-2">
             <label className="text-sm font-bold text-slate-700">Password</label>
             <input
               type="password"

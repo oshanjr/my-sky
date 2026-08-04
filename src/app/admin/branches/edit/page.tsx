@@ -22,8 +22,9 @@ export default async function EditBranchPage({ searchParams }: { searchParams: {
   async function handleSubmit(formData: FormData) {
     'use server';
     
-    if (isEditing && branch) {
-      await updateBranch(branch.id, formData);
+    const id = searchParams.id;
+    if (id) {
+      await updateBranch(id, formData);
     } else {
       await createBranch(formData);
     }

@@ -246,26 +246,26 @@ export default function Contact({ branches = [] }: { branches?: Branch[] }) {
 
         {/* Contact Info & Map (Below Form) */}
         {branches && branches.length > 0 && (
-          <div className="space-y-6">
+          <div className={branches.length === 1 ? "space-y-6" : "grid grid-cols-1 lg:grid-cols-2 gap-6"}>
             {branches.map((branch) => (
-              <div key={branch.id} className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-8 items-center justify-between w-full">
+              <div key={branch.id} className={`bg-white rounded-[2rem] p-6 sm:p-8 shadow-sm border border-slate-200 flex flex-col ${branches.length === 1 ? 'md:flex-row items-center' : ''} gap-6 sm:gap-8 justify-between w-full h-full`}>
                 <div className="flex-1 space-y-6 w-full">
                   <div className="space-y-2">
-                    <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-4 py-1.5 rounded-full border border-sky-200 inline-block mb-2">
+                    <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-sky-900 bg-sky-100 px-3 py-1.5 rounded-full border border-sky-200 inline-block mb-1">
                       {branch.isMain ? 'Headquarters' : 'Branch Office'}
                     </span>
-                    <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
                       {branch.name}
                     </h2>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
                         <MapPin size={18} />
                       </div>
                       <div>
-                        <p className="text-slate-600 text-sm whitespace-pre-wrap">
+                        <p className="text-slate-600 text-sm whitespace-pre-wrap leading-relaxed">
                           {branch.address}
                         </p>
                       </div>
@@ -273,11 +273,11 @@ export default function Contact({ branches = [] }: { branches?: Branch[] }) {
                     
                     {(branch.phone1 || branch.phone2) && (
                       <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0 mt-1">
+                        <div className="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center flex-shrink-0">
                           <Phone size={18} />
                         </div>
                         <div>
-                          <p className="text-slate-600 text-sm">
+                          <p className="text-slate-600 text-sm leading-relaxed">
                             {branch.phone1 && <>{branch.phone1}<br /></>}
                             {branch.phone2 && <>{branch.phone2}</>}
                           </p>
@@ -289,7 +289,7 @@ export default function Contact({ branches = [] }: { branches?: Branch[] }) {
 
                 {/* Map */}
                 {branch.mapUrl && (
-                  <div className="w-full md:w-1/2 h-48 rounded-2xl overflow-hidden border border-slate-200 relative">
+                  <div className={`w-full ${branches.length === 1 ? 'md:w-1/2' : ''} h-56 rounded-2xl overflow-hidden border border-slate-200 relative`}>
                     <iframe 
                       src={branch.mapUrl}
                       width="100%" 

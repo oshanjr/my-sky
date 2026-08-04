@@ -1,5 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/ae',
+        destination: 'https://myskytravel-com.vercel.app/ae',
+      },
+      {
+        source: '/ae/:path*',
+        destination: 'https://myskytravel-com.vercel.app/ae/:path*',
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { addPackage, deletePackage } from '../../actions/packages';
+import { addPackage, deletePackage } from '../../../actions/packages';
 import { Trash2, Map } from 'lucide-react';
 
 const prisma = new PrismaClient();

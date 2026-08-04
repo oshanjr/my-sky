@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { addBlogPost } from '../../../actions/blog';
+import { addBlogPost } from '../../../../actions/blog';
 import { ArrowLeft, Bold, Italic, Heading2, Heading3, List, ListOrdered, Quote, Link as LinkIcon, Image as ImageIcon, Save, Calendar, UploadCloud } from 'lucide-react';
 
 export default function NewBlogPostPage() {

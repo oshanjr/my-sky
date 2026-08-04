@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { addDestination, deleteDestination } from '../../actions/destinations';
+import { addDestination, deleteDestination } from '../../../actions/destinations';
 import { Trash2, Palmtree } from 'lucide-react';
 
 const prisma = new PrismaClient();

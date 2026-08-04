@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { updateHeroConfig } from '../../actions/hero';
+import { updateHeroConfig } from '../../../actions/hero';
 import { ImageIcon } from 'lucide-react';
 
 const prisma = new PrismaClient();

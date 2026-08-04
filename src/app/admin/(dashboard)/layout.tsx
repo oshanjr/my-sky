@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { LayoutDashboard, MessageSquare, Image as ImageIcon, Map, Palmtree, FileText, LogOut } from 'lucide-react';
-import { logout } from '../actions/auth';
+import { logout } from '../../actions/auth';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (

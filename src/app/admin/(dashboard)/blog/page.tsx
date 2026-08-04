@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { deleteBlogPost } from '../../actions/blog';
+import { deleteBlogPost } from '../../../actions/blog';
 import { Trash2, FileText, Plus } from 'lucide-react';
 import Link from 'next/link';
 

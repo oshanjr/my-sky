@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 import { Plus, MapPin, Map, Star, Phone } from 'lucide-react';
-import { deleteBranch } from '../../actions/branch';
+import { deleteBranch } from '../../../actions/branch';
 
 const prisma = new PrismaClient();
 

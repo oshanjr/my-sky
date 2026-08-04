@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Save } from 'lucide-react';
-import { createBranch, updateBranch } from '../../../actions/branch';
+import { createBranch, updateBranch } from '../../../../actions/branch';
 
 const prisma = new PrismaClient();
 

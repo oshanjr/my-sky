@@ -15,6 +15,8 @@ export async function login(formData: FormData) {
     return { error: 'Email and password are required' };
   }
 
+  let success = false;
+
   try {
     const admin = await prisma.admin.findUnique({
       where: { email }
@@ -35,11 +37,15 @@ export async function login(formData: FormData) {
         maxAge: 60 * 60 * 24 * 7 // 1 week
       });
       
-      redirect('/admin');
+      success = true;
     }
   } catch (error) {
     console.error('Login error:', error);
     return { error: 'An error occurred during login' };
+  }
+
+  if (success) {
+    redirect('/admin');
   }
 
   return { error: 'Invalid credentials' };

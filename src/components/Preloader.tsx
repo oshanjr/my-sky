@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plane } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,14 +55,19 @@ export default function Preloader() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-sky-500/20 blur-[40px] rounded-full"></div>
             
             <motion.div
-              animate={{ y: [0, -12, 0], rotate: [90, 88, 92, 90] }}
+              animate={{ y: [0, -12, 0] }}
               transition={{ 
-                y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" },
-                rotate: { repeat: Infinity, duration: 2, ease: "easeInOut" }
+                y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
               }}
-              className="relative z-10 text-sky-400 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)] mb-8"
+              className="relative z-10 text-sky-400 drop-shadow-[0_0_15px_rgba(56,189,248,0.6)] mb-8 h-20 w-64"
             >
-              <Plane size={64} strokeWidth={1.5} />
+              <Image 
+                src="/logo.png" 
+                alt="My Sky Travels Logo" 
+                fill
+                className="object-contain" 
+                priority
+              />
             </motion.div>
 
             {/* Elegant Loading Text */}

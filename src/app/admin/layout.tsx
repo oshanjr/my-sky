@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { LayoutDashboard, MessageSquare, Image as ImageIcon, Map, Palmtree, FileText, LogOut } from 'lucide-react';
 import { logout } from '../actions/auth';
 
@@ -8,8 +9,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside className="w-64 bg-slate-900 text-white flex flex-col hidden md:flex">
         <div className="p-6">
-          <Link href="/admin" className="text-xl font-bold font-serif tracking-tight">
-            My Sky <span className="font-sans font-normal text-sky-400">Admin</span>
+          <Link href="/admin" className="block relative h-10 w-32">
+            <Image 
+              src="/logo.png" 
+              alt="My Sky Admin" 
+              fill
+              className="object-contain" 
+            />
           </Link>
         </div>
 

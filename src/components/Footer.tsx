@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Compass, Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
@@ -16,13 +17,13 @@ export default function Footer() {
           
           {/* Col 1: Brand Info */}
           <div className="md:col-span-12 lg:col-span-4 space-y-8 pr-4">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-xl bg-white text-black flex items-center justify-center font-bold shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-transform group-hover:scale-105">
-                <Compass size={28} />
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-white font-sans">
-                My Sky <span className="font-serif italic font-normal text-sky-200">Travels</span>
-              </span>
+            <Link href="/" className="flex items-center group relative h-12 w-48 mb-2">
+              <Image 
+                src="/logo.png" 
+                alt="My Sky Travels Logo" 
+                fill
+                className="object-contain" 
+              />
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">

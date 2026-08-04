@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Compass, Menu, X, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -34,13 +35,14 @@ export default function Navbar() {
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-sky-500 to-purple-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-            <Compass size={20} className="text-white" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white font-sans">
-            My Sky <span className="font-serif italic font-normal text-white/80">Travels</span>
-          </span>
+        <Link href="/" className="flex items-center group relative h-10 w-40">
+          <Image 
+            src="/logo.png" 
+            alt="My Sky Travels Logo" 
+            fill
+            className="object-contain" 
+            priority 
+          />
         </Link>
 
         {/* Desktop Navigation Links */}
